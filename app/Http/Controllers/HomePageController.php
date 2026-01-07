@@ -79,7 +79,7 @@ class HomePageController extends Controller
         return view('home.useragreement')
         ->with(array(
             'mplans' => Plans::where('type','Main')->get(),
-            'title' => 'User Agreement',
+            'title' => 'User Agreement | Meme Bull Finance',
             'settings' => Settings::where('id', '=', '1')->first(),
         ));
     }
@@ -91,7 +91,7 @@ class HomePageController extends Controller
         return view('home.documentation')
         ->with(array(
             'mplans' => Plans::where('type','Main')->get(),
-            'title' => 'API Documentation',
+            'title' => 'API Documentation | Meme Bull Finance',
             'settings' => Settings::where('id', '=', '1')->first(),
         ));
     }
@@ -101,7 +101,7 @@ class HomePageController extends Controller
 
         return view('home.policy')
         ->with(array(
-            'title' => 'Policy & Compliance',
+            'title' => 'Policy & Compliance | Meme Bull Finance',
             'faqs'=> Faq::orderby('id', 'desc')->get(),
             'settings' => Settings::where('id', '=', '1')->first(),
         ));
@@ -112,7 +112,7 @@ class HomePageController extends Controller
 
         return view('home.whyus')
         ->with(array(
-            'title' => 'whyus',
+            'title' => 'Our Advantage | Meme Bull Finance',
 
             'settings' => Settings::where('id', '=', '1')->first(),
         ));
@@ -122,7 +122,7 @@ class HomePageController extends Controller
 
         return view('home.features')
         ->with(array(
-            'title' => 'Features',
+            'title' => 'Features & Tools | Meme Bull Finance',
 
             'settings' => Settings::where('id', '=', '1')->first(),
         ));
@@ -133,7 +133,7 @@ class HomePageController extends Controller
 
         return view('home.education')
         ->with(array(
-            'title' => 'Education Resource',
+            'title' => 'Education Resource | Meme Bull Finance',
 
             'settings' => Settings::where('id', '=', '1')->first(),
         ));
@@ -143,7 +143,7 @@ class HomePageController extends Controller
 
         return view('home.values')
         ->with(array(
-            'title' => 'Our Values',
+            'title' => 'Our Values & Commitment | Meme Bull Finance',
 
             'settings' => Settings::where('id', '=', '1')->first(),
         ));
@@ -153,7 +153,7 @@ class HomePageController extends Controller
 
         return view('home.events')
         ->with(array(
-            'title' => 'Workshop & Events',
+            'title' => 'Workshop & Events | Meme Bull Finance',
 
             'settings' => Settings::where('id', '=', '1')->first(),
         ));
@@ -254,7 +254,7 @@ class HomePageController extends Controller
         ->with(array(
             'mplans' => Plans::where('type','Main')->get(),
 
-            'title' => 'About',
+            'title' => 'Overview | Meme Bull Finance',
             'settings' => Settings::where('id', '=', '1')->first(),
         ));
     }
@@ -266,7 +266,7 @@ class HomePageController extends Controller
             'mplans' => Plans::where('type','Main')->get(),
                 'pplans' => Plans::where('type','Promo')->get(),
 
-            'title' => 'Contact',
+            'title' => 'Contact | Meme Bull Finance',
             'settings' => Settings::where('id', '=', '1')->first(),
         ));
     }
