@@ -1,1 +1,0 @@
-<?php /**PATH C:\xampp\htdocs\appx\resources\views/admin/about.blade.php ENDPATH**/ ?>

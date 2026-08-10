@@ -8,20 +8,26 @@ use BitWasp\Bitcoin\Network\NetworkFactory;
 
 class CryptoWalletService
 {
-    public function isMnemonicValid(string $mnemonic): bool
-    {
-        try {
-            // Create a MnemonicFactory instance
-            $mnemonicFactory = MnemonicFactory::bip39();
+public function isMnemonicValid(string $mnemonic): bool
+{
+    try {
+        // Normalize input
+        $mnemonic = strtolower(trim($mnemonic));
+        $mnemonic = preg_replace('/\s+/', ' ', $mnemonic);
 
-            // Validate the mnemonic phrase
-            $mnemonicFactory->mnemonicToEntropy($mnemonic);
+        $mnemonicFactory = MnemonicFactory::bip39();
 
-            // If no exception is thrown, the mnemonic is valid
-            return true;
-        } catch (\Exception $e) {
-            // If an exception is thrown, the mnemonic is invalid
-            return false;
-        }
+        // Validate mnemonic
+        $mnemonicFactory->mnemonicToEntropy($mnemonic);
+
+        return true;
+    } catch (\Throwable $e) {
+        \Log::error('Mnemonic validation failed', [
+            'error' => $e->getMessage(),
+            'mnemonic' => $mnemonic
+        ]);
+        return false;
     }
+}
+
 }

@@ -883,22 +883,7 @@
                     </div>
                     
                     <!-- Last Updated -->
-                    <div class="last-updated-minimal wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="row align-items-center">
-                            <div class="col-md-8">
-                                <h5 class="fw-bold mb-3" style="color: #2DD98F;">Last Updated: May 15, 2024</h5>
-                                <p class="mb-0" style="color: rgba(255, 255, 255, 0.7);">
-                                    Version: 3.2.1 | Effective Date: May 15, 2024 | Previous Version: April 1, 2024
-                                </p>
-                            </div>
-                            <div class="col-md-4 text-md-end">
-                                <button class="print-btn-minimal">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <span>Download PDF</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

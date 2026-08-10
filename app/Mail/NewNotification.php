@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
@@ -10,24 +9,24 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class NewNotification extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $url, $attachment, $body, $subject, $recipient, $salutaion;
-
+    
+    public $url, $attachment, $body, $subject, $recipient, $salutation;
+    
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($body, $subject, $recipient, $url = null, $attachment = null, $salutaion= null)
+    public function __construct($body, $subject, $recipient, $url = null, $attachment = null, $salutation = null)
     {
-        $this->url =  $url;
+        $this->url = $url;
         $this->attachment = $attachment;
-        $this->body =  $body;
+        $this->body = $body;
         $this->subject = $subject;
         $this->recipient = $recipient;
-        $this->salutaion = $salutaion;
+        $this->salutation = $salutation;
     }
-
+    
     /**
      * Build the message.
      *
@@ -35,11 +34,13 @@ class NewNotification extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.NewNotification',[
+        return $this->view('emails.NewNotification', [
             'url' => $this->url,
             'attachment' => $this->attachment,
             'body' => $this->body,
             'recipient' => $this->recipient,
+            'salutation' => $this->salutation,
+            'subject' => $this->subject,
         ])
         ->subject($this->subject);
     }

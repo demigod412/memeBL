@@ -1,0 +1,623 @@
+ .env                                                                                    |    23 [32m+[m[31m-[m
+ app/Http/Controllers/Admin/ManageAdminController.php                                    |     6 [32m+[m[31m-[m
+ app/Http/Controllers/AutoTaskController.php                                             |    11 [32m+[m[31m-[m
+ app/Http/Controllers/User/ViewsController.php                                           |   130 [32m+[m[31m-[m
+ app/Mail/NewNotification.php                                                            |    21 [32m+[m[31m-[m
+ app/Mail/WelcomeEmail.php                                                               |    15 [32m+[m[31m-[m
+ app/Providers/SettingsServiceProvider.php                                               |    93 [32m+[m[31m-[m
+ app/Services/CryptoWalletService.php                                                    |    32 [32m+[m[31m-[m
+ bootstrap/cache/.gitignore                                                              |     0
+ error/css/font-awesome.min.css                                                          |     4 [31m-[m
+ error/css/style.css                                                                     |   150 [31m-[m
+ error/fonts/FontAwesome.otf                                                             |   Bin [31m134808[m -> [32m0[m bytes
+ error/fonts/fontawesome-webfont.eot                                                     |   Bin [31m165742[m -> [32m0[m bytes
+ error/fonts/fontawesome-webfont.svg                                                     |  2671 [31m------[m
+ error/fonts/fontawesome-webfont.ttf                                                     |   Bin [31m165548[m -> [32m0[m bytes
+ error/fonts/fontawesome-webfont.woff                                                    |   Bin [31m98024[m -> [32m0[m bytes
+ error/fonts/fontawesome-webfont.woff2                                                   |   Bin [31m77160[m -> [32m0[m bytes
+ error/img/bg.jpg                                                                        |   Bin [31m4435473[m -> [32m0[m bytes
+ public/.htaccess                                                                        |    22 [32m+[m
+ public/dash/js/modern-layout.js                                                         |   109 [31m-[m
+ public/docs/investment_Roadmap.pdf                                                      |   Bin [31m10928370[m -> [32m0[m bytes
+ public/docs/privacypolicy.pdf                                                           |   Bin [31m447499[m -> [32m0[m bytes
+ public/docs/securitypolicy.pdf                                                          |   Bin [31m448659[m -> [32m0[m bytes
+ public/docs/termsofservice.pdf                                                          |   Bin [31m449773[m -> [32m0[m bytes
+ public/footer-bg.png                                                                    |   Bin [31m295383[m -> [32m0[m bytes
+ public/images/06eb9f90-c163-467d-8f55-405065f3d0b2.svg                                  |     3 [31m-[m
+ public/images/23252683-292c-43f9-9fdc-9d80ca413e2b.svg                                  |     3 [31m-[m
+ public/images/33ba3add-aecc-41ff-969d-ca661907ba8c.svg                                  |     4 [31m-[m
+ public/images/579a5755-2503-4ff9-9977-a2aa75ce715b.svg                                  |     5 [31m-[m
+ public/images/6406d4ac-3963-4f7b-ab3b-281a0f78d0f9.svg                                  |     3 [31m-[m
+ public/images/823b2ec9-e7f7-4bd9-ba6a-d3a436295454.svg                                  |     3 [31m-[m
+ public/images/829abbfa-31db-4c2e-a098-af53dac1a1df.svg                                  |     4 [31m-[m
+ public/images/98dbae56-8442-4414-9516-abd12faf2b3a.svg                                  |    11 [31m-[m
+ public/images/Logo.svg                                                                  |    15 [31m-[m
+ public/images/aad3969d-cad7-4bb6-b2dd-9323f4ea9478.svg                                  |     4 [31m-[m
+ public/images/about-img.png                                                             |   Bin [31m177943[m -> [32m0[m bytes
+ public/images/about.jpg                                                                 |   Bin [31m250604[m -> [32m0[m bytes
+ public/images/about1.jpg                                                                |   Bin [31m68736[m -> [32m0[m bytes
+ public/images/bbfc5a6f-c61e-4442-a59a-aedecc9c7a8d.svg                                  |    11 [31m-[m
+ public/images/bot1.png                                                                  |   Bin [31m2805336[m -> [32m0[m bytes
+ public/images/bot2.png                                                                  |   Bin [31m1745678[m -> [32m0[m bytes
+ public/images/c_info_bg.jpg                                                             |   Bin [31m33878[m -> [32m0[m bytes
+ public/images/contact-email.svg                                                         |     6 [31m-[m
+ public/images/contact-massage.svg                                                       |     4 [31m-[m
+ public/images/contact-user.svg                                                          |     4 [31m-[m
+ public/images/d0e937d8-38de-4792-a6b4-0dbc8bc021f7.svg                                  |    11 [31m-[m
+ public/images/d91052b8-0689-44f7-a3f6-ea40fc2d51b8.svg                                  |     3 [31m-[m
+ public/images/discord-f-icon.svg                                                        |     3 [31m-[m
+ public/images/event-img01.jpg                                                           |   Bin [31m62549[m -> [32m0[m bytes
+ public/images/event-img01.jpg.jpeg                                                      |   Bin [31m62549[m -> [32m0[m bytes
+ public/images/event-img02.jpg                                                           |   Bin [31m47100[m -> [32m0[m bytes
+ public/images/event-img02.jpg.jpeg                                                      |   Bin [31m47100[m -> [32m0[m bytes
+ public/images/event-img03.jpg                                                           |   Bin [31m50373[m -> [32m0[m bytes
+ public/images/event-img03.jpg.jpeg                                                      |   Bin [31m50373[m -> [32m0[m bytes
+ public/images/favicon.png                                                               |   Bin [31m2380[m -> [32m0[m bytes
+ public/images/fe2e2afa-1ef8-4f41-a0c7-09dff0773cb2.svg                                  |     7 [31m-[m
+ public/images/fea-01.svg                                                                |    57 [31m-[m
+ public/images/fea-02.svg                                                                |    57 [31m-[m
+ public/images/fea-03.svg                                                                |    57 [31m-[m
+ public/images/fea-04.svg                                                                |    63 [31m-[m
+ public/images/fea-color-sp.png                                                          |   Bin [31m18194[m -> [32m0[m bytes
+ public/images/fea-count-shape1.png                                                      |   Bin [31m1091[m -> [32m0[m bytes
+ public/images/fea-mobile.png                                                            |   Bin [31m36788[m -> [32m0[m bytes
+ public/images/feature-bg.png                                                            |   Bin [31m110949[m -> [32m0[m bytes
+ public/images/footer-bg.png                                                             |   Bin [31m295383[m -> [32m0[m bytes
+ public/images/form_bg.png                                                               |   Bin [31m29588[m -> [32m0[m bytes
+ public/images/hero-bg1.svg                                                              |    56 [31m-[m
+ public/images/hero-icon01.svg                                                           |     3 [31m-[m
+ public/images/hero-icon02.svg                                                           |     8 [31m-[m
+ public/images/hero-icon03.svg                                                           |     3 [31m-[m
+ public/images/hero-icon04.svg                                                           |     7 [31m-[m
+ public/images/hero-mobile-bg5.jpg                                                       |   Bin [31m91785[m -> [32m0[m bytes
+ public/images/hero-sp_01.svg                                                            |    62 [31m-[m
+ public/images/hero-sp_02.svg                                                            |     9 [31m-[m
+ public/images/hero-sp_03.svg                                                            |    57 [31m-[m
+ public/images/hero-sp_04.svg                                                            |     9 [31m-[m
+ public/images/hero-sp_05.svg                                                            |     9 [31m-[m
+ public/images/hero-sp_06.svg                                                            |     9 [31m-[m
+ public/images/icon_bg.png                                                               |   Bin [31m6013[m -> [32m0[m bytes
+ public/images/logo.png                                                                  |   Bin [31m5052[m -> [32m0[m bytes
+ public/images/member01.png                                                              |   Bin [31m103340[m -> [32m0[m bytes
+ public/images/member02.png                                                              |   Bin [31m100360[m -> [32m0[m bytes
+ public/images/member03.png                                                              |   Bin [31m88650[m -> [32m0[m bytes
+ public/images/member04.png                                                              |   Bin [31m62942[m -> [32m0[m bytes
+ public/images/member05.png                                                              |   Bin [31m99565[m -> [32m0[m bytes
+ public/images/member06.png                                                              |   Bin [31m88228[m -> [32m0[m bytes
+ public/images/member07.png                                                              |   Bin [31m93805[m -> [32m0[m bytes
+ public/images/partner_01.png                                                            |   Bin [31m1101[m -> [32m0[m bytes
+ public/images/partner_02.png                                                            |   Bin [31m1155[m -> [32m0[m bytes
+ public/images/partner_03.png                                                            |   Bin [31m1416[m -> [32m0[m bytes
+ public/images/partner_04.png                                                            |   Bin [31m1335[m -> [32m0[m bytes
+ public/images/partner_05.png                                                            |   Bin [31m950[m -> [32m0[m bytes
+ public/images/partner_06.png                                                            |   Bin [31m1413[m -> [32m0[m bytes
+ public/images/partner_07.png                                                            |   Bin [31m437[m -> [32m0[m bytes
+ public/images/partner_08.png                                                            |   Bin [31m446[m -> [32m0[m bytes
+ public/images/post_shape.png                                                            |   Bin [31m22224[m -> [32m0[m bytes
+ public/images/prc_line.png                                                              |   Bin [31m307[m -> [32m0[m bytes
+ public/images/process_icon1.svg                                                         |    63 [31m-[m
+ public/images/process_icon2.svg                                                         |    66 [31m-[m
+ public/images/process_icon3.svg                                                         |    62 [31m-[m
+ public/images/quote_bg.png                                                              |   Bin [31m83917[m -> [32m0[m bytes
+ public/images/team-bg.png                                                               |   Bin [31m546190[m -> [32m0[m bytes
+ public/images/team-sp_01.svg                                                            |    84 [31m-[m
+ public/images/team-sp_02.svg                                                            |     9 [31m-[m
+ public/images/team-sp_03.svg                                                            |    84 [31m-[m
+ public/images/team-sp_04.svg                                                            |     9 [31m-[m
+ public/images/technology.png                                                            |   Bin [31m705753[m -> [32m0[m bytes
+ public/images/tes-flag.png                                                              |   Bin [31m322[m -> [32m0[m bytes
+ public/images/tes-qutation.png                                                          |   Bin [31m223[m -> [32m0[m bytes
+ public/images/testimonial.jpg                                                           |   Bin [31m13677[m -> [32m0[m bytes
+ public/images/testimonial.jpg.jpeg                                                      |   Bin [31m13677[m -> [32m0[m bytes
+ public/images/tm_bg.png                                                                 |   Bin [31m24416[m -> [32m0[m bytes
+ public/images/token-bg.png                                                              |   Bin [31m346332[m -> [32m0[m bytes
+ public/images/token.svg                                                                 |    84 [31m-[m
+ public/images/token1.svg                                                                |     9 [31m-[m
+ public/images/widget_bg.png                                                             |   Bin [31m30371[m -> [32m0[m bytes
+ public/js/app.js                                                                        |    19 [31m-[m
+ public/js/appear.js                                                                     |   120 [31m-[m
+ public/js/bootstrap.bundle.min.js                                                       |     6 [31m-[m
+ public/js/bootstrap.js                                                                  |    54 [31m-[m
+ public/js/countdown.js                                                                  |    23 [31m-[m
+ public/js/easing.min.js                                                                 |   168 [31m-[m
+ public/js/elements/turbo-echo-stream-tag.js                                             |    42 [31m-[m
+ public/js/jquery-3.7.1.min.js                                                           |     2 [31m-[m
+ public/js/jquery.magnific-popup.min.js                                                  |     4 [31m-[m
+ public/js/libs/alpine.js                                                                |    22 [31m-[m
+ public/js/libs/turbo.js                                                                 |     3 [31m-[m
+ public/js/main.js                                                                       |   782 [31m--[m
+ public/js/odometer.min.js                                                               |     2 [31m-[m
+ public/js/parallax-scroll.js                                                            |    19 [31m-[m
+ public/js/scrollspy.js                                                                  |    17 [31m-[m
+ public/js/swiper.min.js                                                                 |    13 [31m-[m
+ public/js/wow.min.js                                                                    |     3 [31m-[m
+ public/token-bg.png                                                                     |   Bin [31m346332[m -> [32m0[m bytes
+ resources/views/auth/login.blade.php                                                    |     2 [32m+[m[31m-[m
+ resources/views/auth/register.blade.php                                                 |     6 [32m+[m[31m-[m
+ resources/views/emails/NewNotification.blade.php                                        |   186 [32m+[m[31m-[m
+ resources/views/emails/welcome.blade.php                                                |   222 [32m+[m[31m-[m
+ resources/views/home/index.blade.php                                                    |     6 [32m+[m[31m-[m
+ resources/views/home/useragreement.blade.php                                            |    19 [32m+[m[31m-[m
+ resources/views/layouts/base.blade.php                                                  |    63 [32m+[m[31m-[m
+ resources/views/layouts/dasht.blade.php                                                 |    62 [32m+[m[31m-[m
+ resources/views/layouts/guest1.blade.php                                                |     2 [32m+[m[31m-[m
+ resources/views/layouts/lang.blade.php                                                  |     2 [32m+[m
+ resources/views/user/signal.blade.php                                                   |    64 [32m+[m[31m-[m
+ routes/web.php                                                                          |     8 [32m+[m[31m-[m
+ storage/.DS_Store                                                                       |   Bin [31m6148[m -> [32m6148[m bytes
+ storage/app/.gitignore                                                                  |     0
+ storage/app/public/.gitignore                                                           |     0
+ storage/framework/.DS_Store                                                             |   Bin [31m6148[m -> [32m6148[m bytes
+ storage/framework/.gitignore                                                            |     0
+ storage/framework/cache/.DS_Store                                                       |   Bin [31m6148[m -> [32m6148[m bytes
+ storage/framework/sessions/.gitignore                                                   |     0
+ storage/framework/testing/.gitignore                                                    |     0
+ storage/framework/views/0033156057064d214d62f9d409aa6b7173a04fd2.php                    |   510 [31m--[m
+ storage/framework/views/01e706ef26b8350234619eef645db0c3c85f038b.php                    |     8 [31m-[m
+ storage/framework/views/01fcb39b93cbeb35585b0c1ad2e23c1633d8b22a.php                    |   125 [31m-[m
+ storage/framework/views/0332f3a0adfb2e7416d4560960052d34c2d022b9.php                    |  1101 [31m---[m
+ storage/framework/views/044d11db569801646d51db981f5dff42ecbb6a17.php                    |   688 [31m--[m
+ storage/framework/views/047606b1757b946fe06c1e8c0cfa760913d3bbc2.php                    |   391 [31m-[m
+ storage/framework/views/048be0964fdb446f88b6b9b42f81f5712c1f7601.php                    |   256 [31m-[m
+ storage/framework/views/04f787846ece6cd57f00d2742e3f8324299ee75c.php                    |    54 [31m-[m
+ storage/framework/views/06ae451031aff94787ccf61a15dd2fa9afa56fa9.php                    |   188 [31m-[m
+ storage/framework/views/08d765add515ff52ffa3508dd3fc7a3f058dba72.php                    |   217 [31m-[m
+ storage/framework/views/08d8915d0c1b1e6cf17068eb6f3b16719a848d43.php                    |    14 [31m-[m
+ storage/framework/views/09b0c2b8cecbc55b8f4831b871dcfe4cfa200e40.php                    |   657 [31m--[m
+ storage/framework/views/0abc1daaf8b1cf22ddd93f06d3ce893c1fdcccc2.php                    |   729 [31m--[m
+ storage/framework/views/0afcaee989921dd4a356a8fd3afe7c15c8cf6f0f.php                    |   202 [31m-[m
+ storage/framework/views/0affa1fca5f755f09a476efa610186fb3b22d5cd.php                    |  1280 [31m---[m
+ storage/framework/views/0b44e781ef29ec21f59422710daddab85058e568.php                    |    85 [31m-[m
+ storage/framework/views/0d74389e073d9e55debcd9ae91ddb11049dabc26.php                    |   214 [31m-[m
+ storage/framework/views/0ea636f359a021fcf0d99d6dfc4ffad7c6da58c0.php                    |   640 [31m--[m
+ storage/framework/views/11d9dc7ee31262c6f570101c0a78e123348d091d.php                    |   683 [31m--[m
+ storage/framework/views/11fb94436372eaf5cde6b16df327ce0ee0f59c25.php                    |   665 [31m--[m
+ storage/framework/views/15c1c391def1cb82f9595799d7011abce3d74a89.php                    |    20 [31m-[m
+ storage/framework/views/16e2c8078940ca36e809aa21b20ef9832766028d.php                    |    11 [31m-[m
+ storage/framework/views/17d5227ad9b989fb8d323ca8409a215ef83f8a94.php                    |    47 [31m-[m
+ storage/framework/views/1932d0ce078a6f643607987ee84b190acd054fdb.php                    |   759 [31m--[m
+ storage/framework/views/19819a94771a5a117ca7521d0f06e95bbe438981.php                    |    77 [31m-[m
+ storage/framework/views/19e50b52791c8d1303ff153b7755f62a77377ed1.php                    |   657 [31m--[m
+ storage/framework/views/1ce8fe35b4d47e3328e617c2d80cec3b684a048f.php                    |   352 [31m-[m
+ storage/framework/views/1d9aea05e03b34bf423b891b7ef3792e52d4b70d.php                    |    32 [31m-[m
+ storage/framework/views/1e0a7829702702f5d69e0f9a634dc094689f5801.php                    |   510 [31m--[m
+ storage/framework/views/1eda57feed3a7c242dec00a453581adb3d9fdb93.php                    |   455 [31m-[m
+ storage/framework/views/20f3672a9fc80f92626305c884a0c405d2ac1c96.php                    |   868 [31m--[m
+ storage/framework/views/21b4e7a9a85788ce9bf94bbd3d18a4e31ad19a73.php                    |   200 [31m-[m
+ storage/framework/views/21d6e0237303f3ecbd8f4b295b7655518cc62bf9.php                    |   393 [31m-[m
+ storage/framework/views/22ba5db84bca63aafbfe9e641ed8f21704230e61.php                    |     9 [31m-[m
+ storage/framework/views/24f50561fa94a262a97db8fc82f514e182f64d73.php                    |   236 [31m-[m
+ storage/framework/views/2576b9c2c1f3e1843134a062905e81bccfa7472b.php                    |   128 [31m-[m
+ storage/framework/views/27daea7529c2cf2dc636b96d7d4e69d56dce1dca.php                    |    49 [31m-[m
+ storage/framework/views/2d3ce876d70b3c93bcaf1f709863696f189061d3.php                    |   871 [31m--[m
+ storage/framework/views/2ff61c0466ce0df743010d8addf337a040f81033.php                    |   516 [31m--[m
+ storage/framework/views/30d40841fe3be3005c637051aa449b2a707c1dc5.php                    |   330 [31m-[m
+ storage/framework/views/30eec3f3f5aae11add3d23828491f9fa486fe25c.php                    |   144 [31m-[m
+ storage/framework/views/31609a0d52a538f21655a6101a9f855b5a65c089.php                    |   176 [31m-[m
+ storage/framework/views/31d624218949642ed69d04a665b24420d1cd4828.php                    |    17 [31m-[m
+ storage/framework/views/331ab4944587829ab30c7e8fc216c0b8fdce6fc4.php                    |   112 [31m-[m
+ storage/framework/views/36625ec4e46211c3a121e0c60a29b6e77597f086.php                    |   254 [31m-[m
+ storage/framework/views/3779159aea6da51e4761fc0ce6505454ecc15915.php                    |   845 [31m--[m
+ storage/framework/views/383e4f284b27e2d8e9e7499ff7f8d022c7e9f5c5.php                    |   393 [31m-[m
+ storage/framework/views/3ad9c9ba4abd563725b7be2ca5826f75ae3755b1.php                    |    49 [31m-[m
+ storage/framework/views/3b3579d9b4d197f33483716e8846d85a38b529d7.php                    |     5 [31m-[m
+ storage/framework/views/3c69b62b27f2a9ed9125b43a19537c5a822ab810.php                    |   198 [31m-[m
+ storage/framework/views/3ca51827fb81119456c5e12119d6446acc407b9b.php                    |  1084 [31m---[m
+ storage/framework/views/3d663509614c4d1352f3c0d74dc4371f17150ab3.php                    |   120 [31m-[m
+ storage/framework/views/3db5430de7347a59f9f9f15f107409f2f4a1565c.php                    |    50 [31m-[m
+ storage/framework/views/3dd924f3b7b94b759b9e2869a72bcd31a0fc66aa.php                    |   128 [31m-[m
+ storage/framework/views/4146529484c7e29ee9afaadd603687d5e9da56fd.php                    |    11 [31m-[m
+ storage/framework/views/4152b6eeceef9f1806c34dd094a1cb5b4aec40b1.php                    |   202 [31m-[m
+ storage/framework/views/41bb8917311d8893bb8615e9d6fda3fbfea47982.php                    |    14 [31m-[m
+ storage/framework/views/425410f5aeae1af6e651af44c27b5cc36b5955a8.php                    |    84 [31m-[m
+ storage/framework/views/429c0671fdea49e0085ba6b5a5a6de6b41016e16.php                    |   577 [31m--[m
+ storage/framework/views/43f70ae217d947afe1b68284f357e234af40d862.php                    |   455 [31m-[m
+ storage/framework/views/4484175042b3fd33e592101c04ecb25554abbb1c.php                    |   396 [31m-[m
+ storage/framework/views/46c043fe17dfac16373883d293b37f9067979221.php                    |   410 [31m-[m
+ storage/framework/views/48625d3efecb2c07039d5890bde6a28a140113aa.php                    |    40 [31m-[m
+ storage/framework/views/4864b13f7da87292044d508fc58065e090b15ab6.php                    |   668 [31m--[m
+ storage/framework/views/4951ed2e2106640d141f6fab8cd34eede682080b.php                    |     5 [31m-[m
+ storage/framework/views/497cbe49cd050b663fdb04e2b93d4401d699af99.php                    |    50 [31m-[m
+ storage/framework/views/4989f08e39f063d77b5ce396992f473a88665d08.php                    |   351 [31m-[m
+ storage/framework/views/4a45026b849ded5c546febfae435e9f8a21dbd44.php                    |   151 [31m-[m
+ storage/framework/views/4bdb8eecf6a639b7f71970815a5693e2714991db.php                    |   128 [31m-[m
+ storage/framework/views/4c98f335493c2d105725777ef44df6cd1afb877a.php                    |   886 [31m--[m
+ storage/framework/views/4dfc71fea7505c73173075f305fd06c54c6c3a6d.php                    |    20 [31m-[m
+ storage/framework/views/50b0ffa9ccbcb71e125bf6da7735c9a9d0c474f9.php                    |     3 [31m-[m
+ storage/framework/views/5130ddfad1d93d15738968d0d674b84b5311cf00.php                    |   352 [31m-[m
+ storage/framework/views/52d0a8bb6af46b05fbad3069d194600a714afbbc.php                    |   227 [31m-[m
+ storage/framework/views/53b15cec0a918114df21bb4a48edab5260401f73.php                    |   219 [31m-[m
+ storage/framework/views/53cb1bfb0ffbeba9144b15aaf5a280e162626ef4.php                    |    50 [31m-[m
+ storage/framework/views/551a3c64235fdbf1bfe6a2dc383ba4d668641faf.php                    |    30 [31m-[m
+ storage/framework/views/55ac9ef2032136ba7cba24d1047e8d0e050ea553.php                    |   159 [31m-[m
+ storage/framework/views/55c64b6739a031be7a6c4a8dbed017049f65ad0b.php                    |   338 [31m-[m
+ storage/framework/views/56b0c1fad4cb76bed5f13f522c9bd25b27088919.php                    |    39 [31m-[m
+ storage/framework/views/573cc548d73f2371f926692df6a0c1a936266c5c.php                    |    13 [31m-[m
+ storage/framework/views/57e4d00b883dd2baec9e8af8cfcfb97ee6bdd519.php                    |   243 [31m-[m
+ storage/framework/views/5a1174a20a44b6a24e46b047ac2840bf3e0e60e6.php                    |   273 [31m-[m
+ storage/framework/views/5ac88395b93854dc1007916d82d3901787f25026.php                    |    13 [31m-[m
+ storage/framework/views/5bcd02c94c96a3a3bbb2a767b932fc458010f87d.php                    |   160 [31m-[m
+ storage/framework/views/5d4c6e85a078902142ed4573115b9af2d2470aa1.php                    |   540 [31m--[m
+ storage/framework/views/5dd8c47aa9189fcff3d2c90e934f396b19f50fbd.php                    |   272 [31m-[m
+ storage/framework/views/5ee7cd691171bd751f5a17bb7e41f0c05aff7db0.php                    |    91 [31m-[m
+ storage/framework/views/61e24b29e0ae380b104b156215ca6b945294e96e.php                    |   391 [31m-[m
+ storage/framework/views/6248f652fd44d19190fa010f50b23ce891e2be9d.php                    |    39 [31m-[m
+ storage/framework/views/62c903e0b4441f22a94f397eda680fea5301fddc.php                    |     3 [31m-[m
+ storage/framework/views/631f04e197c535964024678662a4d0166af609c5.php                    |   207 [31m-[m
+ storage/framework/views/639928585b2b83c26dd8ef11c2403862bf034f7f.php                    |   730 [31m--[m
+ storage/framework/views/64d07ad6fc1931fd0c17001931309ac58711b550.php                    |  1233 [31m---[m
+ storage/framework/views/64f1a273751373b0640adf27479e04011ed31b8e.php                    |     5 [31m-[m
+ storage/framework/views/66e45a794533d2e8298980b0cf61bc3794e933cf.php                    |   351 [31m-[m
+ storage/framework/views/671ac073afb1bbcb8097c2178ccab74e9d451dd5.php                    |   198 [31m-[m
+ storage/framework/views/6a46158903ffbf2e45ac9fff56e8ba0b1a33a271.php                    |   345 [31m-[m
+ storage/framework/views/6a799989aa9d8c0b0d3c9a4b8e4a13107917f625.php                    |    13 [31m-[m
+ storage/framework/views/6afccd6a7aa4e0ad0653f1df51371d50b039acda.php                    |   341 [31m-[m
+ storage/framework/views/6b67dd360804cd5d139116b226d264c1b9d346c8.php                    |   868 [31m--[m
+ storage/framework/views/6bcbeab4cf5457bbf115e4fcca69d89833c1ddfe.php                    |    54 [31m-[m
+ storage/framework/views/6beee72c4c1d690d5f01ad78359fb28fdb3bc955.php                    |   121 [31m-[m
+ storage/framework/views/6c77ad9f09b5c37e96ff10b92759892c6350ad55.php                    |    35 [31m-[m
+ storage/framework/views/6ca46770fe7023f0ffca71a4661ac3238f438f28.php                    |   351 [31m-[m
+ storage/framework/views/6e5e903ca223856b0e0ca77df44933f5f602a97e.php                    |     5 [31m-[m
+ storage/framework/views/6eacaccbbfeb59ed7a6c5a1bf06a9e858c424727.php                    |   244 [31m-[m
+ storage/framework/views/6fb159fa02a52b18c00ec9c17711e40fcb1b8ca0.php                    |   479 [31m--[m
+ storage/framework/views/72addba667cdea9fab29c5345a2231fb8de2b773.php                    |    32 [31m-[m
+ storage/framework/views/74a5e5de07cf30a1cfedf78212e27733b34bb54f.php                    |     3 [31m-[m
+ storage/framework/views/75440fd065e5e602e340e828d225ed11f1e5ac4e.php                    |   254 [31m-[m
+ storage/framework/views/770a92fee2fb0fa81228a189fc43299ab2ccc984.php                    |   793 [31m--[m
+ storage/framework/views/7813f6fa3afb543e881a21f4502515bbd6f30781.php                    |   248 [31m-[m
+ storage/framework/views/78cab774600d933f09792f9433ab6efe76e614e2.php                    |   396 [31m-[m
+ storage/framework/views/78e5b33fb348ea16b3978d23decb24a4793a2269.php                    |  2114 [31m-----[m
+ storage/framework/views/79431ceb3d5b3b29fc1f9b396142d78b31e5edbd.php                    |   219 [31m-[m
+ storage/framework/views/7b0f83ff55f3ec18d7aa74fc80fb2ba30dd12d53.php                    |   479 [31m--[m
+ storage/framework/views/7b22e1c92a34b70db6fd5626e8485f0c69b039fa.php                    |   345 [31m-[m
+ storage/framework/views/7c1a2b9d1ba95e39a61cec4ca87828837f324db2.php                    |   251 [31m-[m
+ storage/framework/views/7ca046bfcaed5c4a38d69937ef8ccee9ac2f38e0.php                    |   125 [31m-[m
+ storage/framework/views/7f322152db84822a19071dc8f52b51c079eeb7b9.php                    |     5 [31m-[m
+ storage/framework/views/82b5d0010a7d2d0d514068cc5cb4279c0ed68a88.php                    |   523 [31m--[m
+ storage/framework/views/82f65f994917d4c64c62e25a939f635996ec1ae1.php                    |   102 [31m-[m
+ storage/framework/views/8343962a90a316079cc6cd21e54b5956c64b366e.php                    |   336 [31m-[m
+ storage/framework/views/83e6e42671297e1fbe7320de8ab9cbce30869796.php                    |    20 [31m-[m
+ storage/framework/views/84a54820f79bc2440a8a4b9640c2b5d3d688d2a3.php                    |  1141 [31m---[m
+ storage/framework/views/855c0c2884b8b5f315697ad6dcd7da690c81ebbc.php                    |   188 [31m-[m
+ storage/framework/views/85795c0552d6008a2000ba24d219d2f1eba4611b.php                    |     5 [31m-[m
+ storage/framework/views/8579c36cb0b75dfd379af895169e1df6d73d7749.php                    |   665 [31m--[m
+ storage/framework/views/85e123afcfd6345d82c5d2f680b1d259b7c527dc.php                    |    35 [31m-[m
+ storage/framework/views/862a561d13206ad1cd2a6c96634e4f3d21200953.php                    |   330 [31m-[m
+ storage/framework/views/868456ccacb30d39073f02765d07eb569555c690.php                    |   176 [31m-[m
+ storage/framework/views/874d17cdcb71f77d8e918199300755620155d138.php                    |    62 [31m-[m
+ storage/framework/views/8a137790fe8aeacd4b0ff37b3773486cef928a06.php                    |   393 [31m-[m
+ storage/framework/views/8b84017ad72a9dab92f76c607bbc3f659bf24861.php                    |   479 [31m--[m
+ storage/framework/views/8bb8a92a669a2414135013539db93e0b9d01d88b.php                    |   151 [31m-[m
+ storage/framework/views/8c2ab16e83f8a2b3584684b619fc1e64254942d0.php                    |   882 [31m--[m
+ storage/framework/views/8d05a8a6c7f833ef1ba4221b3c3cadd70e8e5ad5.php                    |   120 [31m-[m
+ storage/framework/views/8d4f0d63dcbfa09d3c3d62b16e89dca34d11f497.php                    |   296 [31m-[m
+ storage/framework/views/8da8a17a2a05aecf4e0ed7b685cf41fc939d712c.php                    |  1084 [31m---[m
+ storage/framework/views/8e94c67f46db958eab2bb3831b23afdbab72670b.php                    |   538 [31m--[m
+ storage/framework/views/8f3bdca03907379b52ed3a359c3d4e5ed8afc772.php                    |   117 [31m-[m
+ storage/framework/views/90040f305cdd899699c9fd69cf5ef02bf600d221.php                    |    43 [31m-[m
+ storage/framework/views/9012ab6eee21cf980da69aa56bd5a04ddba7219f.php                    |   207 [31m-[m
+ storage/framework/views/90ae97b57508b9b0d34926788f95aad363575122.php                    |    39 [31m-[m
+ storage/framework/views/92a1802b19f4e35bbff287946ca9ea123ce54d16.php                    |     5 [31m-[m
+ storage/framework/views/92cfea11eacfc9edc65fee530ec35a3176f23cff.php                    |   797 [31m--[m
+ storage/framework/views/9304354a5c513567d96371619cc149faabbccd14.php                    |    85 [31m-[m
+ storage/framework/views/93f6553a2ce3f0f1032e48e3da6835af1412fec5.php                    |  1118 [31m---[m
+ storage/framework/views/953dfc1084e2c999658198b1fbd6f1738ce07934.php                    |   543 [31m--[m
+ storage/framework/views/95bdd0ad75e859985fe20715123be7c9af7f941f.php                    |    35 [31m-[m
+ storage/framework/views/95cf058735c574d79959ead9c320b180ef081801.php                    |   486 [31m--[m
+ storage/framework/views/9602c97659e6dc54497e0c132234779b515022a0.php                    |    54 [31m-[m
+ storage/framework/views/970fd4574b3391fe42c255bf4de1afbd201ccb2a.php                    |   455 [31m-[m
+ storage/framework/views/99e24755a2ce0c4f03138558de916f8fc2a10343.php                    |   359 [31m-[m
+ storage/framework/views/9ab6e16f24c99ef76a2ae75c978c9176b635866c.php                    |   176 [31m-[m
+ storage/framework/views/9b02e5052027a5a946cf25522c3620d93e64cf8c.php                    |   538 [31m--[m
+ storage/framework/views/9b7edb1936877dcfaef03976baff57a983d5727b.php                    |   341 [31m-[m
+ storage/framework/views/9c1b535354ebcfcde01c6ffa78f95c4bf8cea113.php                    |    94 [31m-[m
+ storage/framework/views/9c862ca35fbf4db2e31879f34c5dbe6ffc957cb1.php                    |   859 [31m--[m
+ storage/framework/views/a0ed89541c4e428fedb1e206c3430de36ee09964.php                    |    29 [31m-[m
+ storage/framework/views/a3658a8ebd6605c1f0ec17c0fd9aa3fddd96bb6e.php                    |    62 [31m-[m
+ storage/framework/views/a4f5d4ddc656e281025c622297306d8df8d03294.php                    |    13 [31m-[m
+ storage/framework/views/a59b93f343348cca8ceb4731035ae0d30fd47dd5.php                    |    77 [31m-[m
+ storage/framework/views/a73f22e2d106e7097240f00d7c508531be68d54b.php                    |   120 [31m-[m
+ storage/framework/views/a77220966b397672eaff2c7223e4c94d5f2ab778.php                    |   217 [31m-[m
+ storage/framework/views/a9216b83e0436cf07b6be3e009096b299fb140f9.php                    |   279 [31m-[m
+ storage/framework/views/a987203b298389b24ec3d7f382c651719e407326.php                    |     1 [31m-[m
+ storage/framework/views/ab47296bccf7c2dc54f375984d1dc6198f6f5677.php                    |    61 [31m-[m
+ storage/framework/views/ad43bb44e1a972f069ed4213e76197274cc8e644.php                    |     2 [31m-[m
+ storage/framework/views/b0b5f10739ccceb2e2d959c3747aede756dd8a3e.php                    |    11 [31m-[m
+ storage/framework/views/b1af3bd46f6c85272c55a24e35f21d2acfe01f13.php                    |    31 [31m-[m
+ storage/framework/views/b2750689b4ac1897ef993ef52a08b068ea767f02.php                    |    16 [31m-[m
+ storage/framework/views/b3f48d032789ddee881418f1a6cb8dabc85096a8.php                    |    31 [31m-[m
+ storage/framework/views/b7f385f34e6a569ce5aaed3d16b2b94e0ab35084.php                    |   538 [31m--[m
+ storage/framework/views/b8c9e24967c0961ae2d2cdc9add34d238f638abd.php                    |    20 [31m-[m
+ storage/framework/views/b900e82818688f2e0c2233f1169562e3ffffb883.php                    |   194 [31m-[m
+ storage/framework/views/bae4d70f6b4818d88c92f33967a7e2ce709a29ab.php                    |     3 [31m-[m
+ storage/framework/views/bb3c712cece7283382199394a2aab30c66b41698.php                    |   871 [31m--[m
+ storage/framework/views/bb452099fc52237d10ecda2b0f60c37479ba5f4c.php                    |   188 [31m-[m
+ storage/framework/views/bbe2b8bacc0dda8a3ba79e572757c3749a17d095.php                    |    61 [31m-[m
+ storage/framework/views/bbfc44eda8d3d04551d7e7e8e6b425fe1764bc21.php                    |   992 [31m---[m
+ storage/framework/views/bf8c29bc6819ac524e842a3602f156e3c085e6af.php                    |   410 [31m-[m
+ storage/framework/views/bfd7764f4efe392062f7f8280340db7096764dab.php                    |     3 [31m-[m
+ storage/framework/views/c1977f33d194de8cc76d40852f22c6ec039d12ec.php                    |   628 [31m--[m
+ storage/framework/views/c19b8e444a06075eaf5cbd9b3f58359e5047fd3f.php                    |   657 [31m--[m
+ storage/framework/views/c22213cda2deca5219a7710f12a0900f9f329560.php                    |   730 [31m--[m
+ storage/framework/views/c2e2bcad2e00370221de48c117b9eceb2f84e443.php                    |   263 [31m-[m
+ storage/framework/views/c388b3dab77683203931bc8d17f5a63a191cbd92.php                    |   296 [31m-[m
+ storage/framework/views/c51a298b96edf75781cbbc04ea175df55347a01e.php                    |   236 [31m-[m
+ storage/framework/views/c5c44b8ce050b216403111dc41128c66b529078c.php                    |    16 [31m-[m
+ storage/framework/views/c5ed9015664d4a921df7ac46425ee69bfbacc79b.php                    |   359 [31m-[m
+ storage/framework/views/c624c73285f5b71ed1d4b0709c1e7e0fe051b471.php                    |   248 [31m-[m
+ storage/framework/views/c74477922ebcbf769883a206179e810309fc2090.php                    |   100 [31m-[m
+ storage/framework/views/ca7bce86f993253d71addf2845b0d4ad3d67e9d7.php                    |    39 [31m-[m
+ storage/framework/views/cafe612ea8c8ddebd230083f4e1d2c0f0e614271.php                    |     9 [31m-[m
+ storage/framework/views/cc2458068f720095e27795fe240c66e1090823cb.php                    |   809 [31m--[m
+ storage/framework/views/ce7a5514c64efbd8f42f4c94635908ed1bb848d7.php                    |    60 [31m-[m
+ storage/framework/views/cf0190f751900b7a013eda75fd92d54de3c3d1da.php                    |     3 [31m-[m
+ storage/framework/views/cf02acc112b5921f9c8695cfa3d319aac339c203.php                    |   194 [31m-[m
+ storage/framework/views/cf127230dc4eb589b10e00ef7f96822cd6d9cc65.php                    |   214 [31m-[m
+ storage/framework/views/d1058ad6138846c68cd237f91909b72339328f0d.php                    |   280 [31m-[m
+ storage/framework/views/d1a4d9a1f35b07d3b4b3d323cd75d0707c9d1474.php                    |   516 [31m--[m
+ storage/framework/views/d1de4999321ef1da23c1bc8a7ee0b5908f94bd8f.php                    |  1266 [31m---[m
+ storage/framework/views/d3321c5cd7aedb237c44deaa9a39b9d4bfadf64c.php                    |   868 [31m--[m
+ storage/framework/views/d60e186be0f6c2ad4561356f36ed0ad823fdf9af.php                    |    49 [31m-[m
+ storage/framework/views/d61cbdfa07439e29fd099b3de8bfc950e67a715f.php                    |   112 [31m-[m
+ storage/framework/views/d849ecb7bf8be8d7f6489904556ecabdc7e336d6.php                    |  1041 [31m---[m
+ storage/framework/views/d90df7d917c2798a0c493f5505d93808534c59a6.php                    |    29 [31m-[m
+ storage/framework/views/da8c600d0476a46acd209ad8a768d833c19f9d0d.php                    |   307 [31m-[m
+ storage/framework/views/dcf4b1e3a4f36247d5252e45abc2843b511de05c.php                    |   809 [31m--[m
+ storage/framework/views/de0ff98aa3c5d1c1608d9a8adf38f6ea89cd3499.php                    |   330 [31m-[m
+ storage/framework/views/dec8039381b41586027d4b4f8e5ef57e6fba3eb7.php                    |   237 [31m-[m
+ storage/framework/views/ded4dffee10bb6ed241259bcbc3f67dcfdcae223.php                    |   160 [31m-[m
+ storage/framework/views/e314660c565d789a9df5481180bd311b654e9c2d.php                    |    27 [31m-[m
+ storage/framework/views/e3fbac24da825bd55848dbed4a6d988fad6a4f9e.php                    |   540 [31m--[m
+ storage/framework/views/e656fb17a2b00ae37ef97058d6db43d22e23ddc2.php                    |  1128 [31m---[m
+ storage/framework/views/e78bd59773ff875677b2de12298d867039b30a06.php                    |    62 [31m-[m
+ storage/framework/views/e7f9bfdcde88e91445f07adf446e3e797ff2484f.php                    |   510 [31m--[m
+ storage/framework/views/e86006b01439288113a7d90df49bdd0e3b256dd8.php                    |    20 [31m-[m
+ storage/framework/views/e939d6934304e09cbaeb0a3ae7997157366b1b5b.php                    |   159 [31m-[m
+ storage/framework/views/e9568ab14aa3f1342d9ba7ce4e9d4f928a4afc69.php                    |   248 [31m-[m
+ storage/framework/views/eb3e0a725683ad8c3932dbdb60a11bb55f39aa98.php                    |   396 [31m-[m
+ storage/framework/views/eb40b09049dbd2c5400b93066934516357d0d1a7.php                    |   251 [31m-[m
+ storage/framework/views/eb8c8b84af1a33d935d185234d908e09112428e1.php                    |   458 [31m-[m
+ storage/framework/views/ed61cd14e8232ccd34c1bd31586659535592b98c.php                    |     2 [31m-[m
+ storage/framework/views/eee8a6324c9512856d8041cccca7562f0985d64f.php                    |     5 [31m-[m
+ storage/framework/views/f011d363b77040d32e1cbb2abe621327e314630f.php                    |   523 [31m--[m
+ storage/framework/views/f1526df7fc344bafcafa39dd984f663c4ec48af1.php                    |   337 [31m-[m
+ storage/framework/views/f1d4f1cf3bf995e0a1a253d6f9b2f851e3a77ca4.php                    |  1141 [31m---[m
+ storage/framework/views/f1f3aab3780071bbcd1db35b92152b2929569015.php                    |    43 [31m-[m
+ storage/framework/views/f37422a65e9096ea64d03019b0cdfc44eb554fa6.php                    |    49 [31m-[m
+ storage/framework/views/f568468f7f0775a5bd7b9ca6a3dca2cc9f9fa096.php                    |   243 [31m-[m
+ storage/framework/views/f729c07e683cec900679559f62b3dfa0ba5fd9cc.php                    |   296 [31m-[m
+ storage/framework/views/f7c8ca4c479530e8f66d78d3e6c2321b8b570a68.php                    |   768 [31m--[m
+ storage/framework/views/f87a10ecb422cc17e89cda3f43cf3ef5e8fcf9c2.php                    |    96 [31m-[m
+ storage/framework/views/faf36011b8d7b0109adc6391eaf8e88865b8a370.php                    |   273 [31m-[m
+ storage/framework/views/fbedc1cc8976575ceaceda85d5737c34cedaf4f7.php                    |    97 [31m-[m
+ storage/framework/views/fc144695f2c56a6135a4ed53137234d5a0c637ce.php                    |   125 [31m-[m
+ storage/framework/views/fc4266449a072cb5c43530d0f8f97f7504cdc85f.php                    |    29 [31m-[m
+ storage/framework/views/fc7675ba9911adae73e5a004eb4cbec7fd529ed0.php                    |   244 [31m-[m
+ storage/framework/views/fc933ad31e8b2ed7bf5fd3a069c0ca7ae2e9501d.php                    |     3 [31m-[m
+ storage/framework/views/fcdecafbe87a215f63337f613eb1fa5d18af24ea.php                    |    47 [31m-[m
+ storage/framework/views/fce414b5dcee5764e8870f9cbf79459ad81e06ad.php                    |   761 [31m--[m
+ storage/framework/views/fd0ced391e4ae9555b2d3f3a3ecb524a0209f4b9.php                    |    27 [31m-[m
+ storage/framework/views/fdfcf23a36e814deec235a3b1f7a7aff58165b4e.php                    |    30 [31m-[m
+ storage/framework/views/ffe398dc41684d119d358b1306b459d4be3b4d49.php                    |     3 [31m-[m
+ storage/logs/.gitignore                                                                 |     0
+ temp/custom/BUY (1).png                                                                 |   Bin [31m20479[m -> [32m0[m bytes
+ temp/custom/Dashboard/Dashboard.zip                                                     |   Bin [31m4846939[m -> [32m0[m bytes
+ temp/custom/Dashboard/ajax/libs/animate.css/4.1.1/animate.min.css/animate.min.css       |     7 [31m-[m
+ temp/custom/Dashboard/ajax/libs/jquery/3.5.1/jquery.min.js                              |     2 [31m-[m
+ temp/custom/Dashboard/css/dark_blue_adminux.css                                         |     6 [31m-[m
+ temp/custom/Dashboard/dash.html                                                         |   226 [31m-[m
+ temp/custom/Dashboard/img/kk2.gif                                                       |   Bin [31m4495602[m -> [32m0[m bytes
+ temp/custom/Dashboard/img/profile/bg.mp4                                                |   Bin [31m1190106[m -> [32m0[m bytes
+ temp/custom/Dashboard/img/profile/default.jpg                                           |   Bin [31m8946[m -> [32m0[m bytes
+ temp/custom/Dashboard/js/adminux.js                                                     |   241 [31m-[m
+ temp/custom/Dashboard/js/bootstrap.min.js                                               |     6 [31m-[m
+ temp/custom/Dashboard/js/dashboard1.js                                                  |   187 [31m-[m
+ temp/custom/Dashboard/js/ie10-viewport-bug-workaround.js                                |    24 [31m-[m
+ temp/custom/Dashboard/js/jquery-2.1.1.min.js                                            |     4 [31m-[m
+ temp/custom/Dashboard/js/styleswitcher.js                                               |   374 [31m-[m
+ temp/custom/Dashboard/login.html                                                        |   284 [31m-[m
+ temp/custom/Dashboard/register.html                                                     |   591 [31m--[m
+ temp/custom/Dashboard/vendor/bootstrap-4.1.1/css/bootstrap.css                          |     6 [31m-[m
+ temp/custom/Dashboard/vendor/chartjs/Chart.bundle.min.js                                |    16 [31m-[m
+ temp/custom/Dashboard/vendor/chartjs/utils.js                                           |    14 [31m-[m
+ temp/custom/Dashboard/vendor/cicular_progress/circle-progress.min.js                    |    10 [31m-[m
+ temp/custom/Dashboard/vendor/cicular_progress/jquery.sparkline.min.js                   |     5 [31m-[m
+ temp/custom/Dashboard/vendor/cookie/jquery.cookie.js                                    |   117 [31m-[m
+ temp/custom/Dashboard/vendor/css/dark_blue_adminux.css                                  |     6 [31m-[m
+ temp/custom/Dashboard/vendor/datatables/css/dataTables.bootstrap4.css                   |   193 [31m-[m
+ temp/custom/Dashboard/vendor/datatables/css/responsive.dataTables.min.css               |     1 [31m-[m
+ temp/custom/Dashboard/vendor/datatables/js/dataTables.bootstrap4.js                     |   184 [31m-[m
+ temp/custom/Dashboard/vendor/datatables/js/dataTables.responsive.min.js                 |    26 [31m-[m
+ temp/custom/Dashboard/vendor/datatables/js/jquery.dataTables.min.js                     |   166 [31m-[m
+ temp/custom/Dashboard/vendor/font-awesome-4.7.0/css/font-awesome.min.css                |  3044 [31m-------[m
+ temp/custom/Dashboard/vendor/jquery-jvectormap/jquery-jvectormap-2.0.3.css              |   135 [31m-[m
+ temp/custom/Dashboard/vendor/jquery-jvectormap/jquery-jvectormap-world-mill-en.js       |     1 [31m-[m
+ temp/custom/Dashboard/vendor/jquery-jvectormap/jquery-jvectormap.js                     |     2 [31m-[m
+ temp/custom/Dashboard/vendor/sparklines/jquery.sparkline.min.js                         |     5 [31m-[m
+ temp/custom/Dashboard/vendor/spincrement/jquery.spincrement.min.js                      |     1 [31m-[m
+ temp/custom/MINING.png                                                                  |   Bin [31m187350[m -> [32m0[m bytes
+ temp/custom/SELL.png                                                                    |   Bin [31m24667[m -> [32m0[m bytes
+ temp/custom/assets/css/all.min.css                                                      |     5 [31m-[m
+ temp/custom/assets/css/fontawesome.min.css                                              |     5 [31m-[m
+ temp/custom/assets/css/others.css                                                       |    63 [31m-[m
+ temp/custom/assets/css/src/bootstrap/bootstrap.min.css                                  |     6 [31m-[m
+ temp/custom/assets/css/src/bootstrap/bootstrap.min.js                                   |     7 [31m-[m
+ temp/custom/assets/javascript/countries.js                                              |   297 [31m-[m
+ temp/custom/assets/js/all.min.js                                                        |     5 [31m-[m
+ temp/custom/assets/js/clipboard.min.js                                                  |     7 [31m-[m
+ temp/custom/assets/js/datetime-moment.js                                                |    62 [31m-[m
+ temp/custom/assets/js/fontawesome.min.js                                                |     5 [31m-[m
+ temp/custom/assets/js/functions.js                                                      |    49 [31m-[m
+ temp/custom/assets/js/jquery.min.js                                                     |     2 [31m-[m
+ temp/custom/assets/js/language.js                                                       |    29 [31m-[m
+ temp/custom/assets/js/lib/bootstrap.bundle.min.js                                       |     6 [31m-[m
+ temp/custom/assets/js/moment.min.js                                                     |     7 [31m-[m
+ temp/custom/assets/js/plugins/datatable/datatables.min.css                              |    24 [31m-[m
+ temp/custom/assets/js/plugins/datatable/datatables.min.js                               |   495 [31m--[m
+ temp/custom/assets/js/plugins/splide/splide.min.js                                      |     6 [31m-[m
+ temp/custom/assets/vendor/jquery/jquery-3.2.1.slim.min.js                               |     4 [31m-[m
+ temp/custom/bg.mp4                                                                      |   Bin [31m1190106[m -> [32m0[m bytes
+ temp/custom/bitcoincash.png                                                             |   Bin [31m5236[m -> [32m0[m bytes
+ temp/custom/eth.jpg                                                                     |   Bin [31m2836[m -> [32m0[m bytes
+ temp/custom/img/1.jpg                                                                   |   Bin [31m105885[m -> [32m0[m bytes
+ temp/custom/img/10.jpg                                                                  |   Bin [31m172575[m -> [32m0[m bytes
+ temp/custom/img/11.jpg                                                                  |   Bin [31m98771[m -> [32m0[m bytes
+ temp/custom/img/12.jpg                                                                  |   Bin [31m134739[m -> [32m0[m bytes
+ temp/custom/img/13.jpg                                                                  |   Bin [31m106546[m -> [32m0[m bytes
+ temp/custom/img/1497835.png                                                             |   Bin [31m42855[m -> [32m0[m bytes
+ temp/custom/img/2.jpg                                                                   |   Bin [31m115025[m -> [32m0[m bytes
+ temp/custom/img/3.jpg                                                                   |   Bin [31m91247[m -> [32m0[m bytes
+ temp/custom/img/4.jpg                                                                   |   Bin [31m148881[m -> [32m0[m bytes
+ temp/custom/img/5.jpg                                                                   |   Bin [31m160835[m -> [32m0[m bytes
+ temp/custom/img/6.jpg                                                                   |   Bin [31m119267[m -> [32m0[m bytes
+ temp/custom/img/7.jpg                                                                   |   Bin [31m96923[m -> [32m0[m bytes
+ temp/custom/img/8.jpg                                                                   |   Bin [31m89614[m -> [32m0[m bytes
+ temp/custom/img/9.jpg                                                                   |   Bin [31m170945[m -> [32m0[m bytes
+ temp/custom/img/LOGO.png                                                                |   Bin [31m24018[m -> [32m0[m bytes
+ temp/custom/img/about/faq/icons-faq.jpg                                                 |   Bin [31m3434[m -> [32m0[m bytes
+ temp/custom/img/about/faq/index.html                                                    |    12 [31m-[m
+ temp/custom/img/about/faq/index2a60.html                                                |    12 [31m-[m
+ temp/custom/img/about/faq/index38f9.html                                                |    12 [31m-[m
+ temp/custom/img/about/faq/index3dd6.html                                                |    12 [31m-[m
+ temp/custom/img/about/faq/index7dc1.html                                                |    12 [31m-[m
+ temp/custom/img/about/faq/index9a11.html                                                |    12 [31m-[m
+ temp/custom/img/about/faq/indexd4cd.html                                                |    12 [31m-[m
+ temp/custom/img/about/index.html                                                        |    12 [31m-[m
+ temp/custom/img/about/index2a60.html                                                    |    12 [31m-[m
+ temp/custom/img/about/index38f9.html                                                    |    12 [31m-[m
+ temp/custom/img/about/index3dd6.html                                                    |    12 [31m-[m
+ temp/custom/img/about/index7dc1.html                                                    |    12 [31m-[m
+ temp/custom/img/about/index9a11.html                                                    |    12 [31m-[m
+ temp/custom/img/about/indexd4cd.html                                                    |    12 [31m-[m
+ temp/custom/img/abt.png                                                                 |   Bin [31m408696[m -> [32m0[m bytes
+ temp/custom/img/alert-icon.png                                                          |   Bin [31m1315[m -> [32m0[m bytes
+ temp/custom/img/animal_icons.html                                                       |    14 [31m-[m
+ temp/custom/img/award-best-ctrader.png                                                  |   Bin [31m31343[m -> [32m0[m bytes
+ temp/custom/img/award-best-fx-trading.png                                               |   Bin [31m7010[m -> [32m0[m bytes
+ temp/custom/img/award-best-trade-diamond.png                                            |   Bin [31m22990[m -> [32m0[m bytes
+ temp/custom/img/award-copy-trading-plat.png                                             |   Bin [31m7468[m -> [32m0[m bytes
+ temp/custom/img/award-leadership.png                                                    |   Bin [31m15953[m -> [32m0[m bytes
+ temp/custom/img/bangla_button-002.html                                                  |    14 [31m-[m
+ temp/custom/img/bch.png                                                                 |   Bin [31m12050[m -> [32m0[m bytes
+ temp/custom/img/best-ctrader-broker.html                                                |    14 [31m-[m
+ temp/custom/img/best-p-program.html                                                     |    14 [31m-[m
+ temp/custom/img/best-retail.png                                                         |   Bin [31m7814[m -> [32m0[m bytes
+ temp/custom/img/bnb.png                                                                 |   Bin [31m9524[m -> [32m0[m bytes
+ temp/custom/img/btc.png                                                                 |   Bin [31m9943[m -> [32m0[m bytes
+ temp/custom/img/campaigns/100-deposit-bonus/hero-img.png                                |   Bin [31m363157[m -> [32m0[m bytes
+ temp/custom/img/campaigns/100-deposit-bonus/index.html                                  |    12 [31m-[m
+ temp/custom/img/campaigns/100-deposit-bonus/index2a60.html                              |    12 [31m-[m
+ temp/custom/img/campaigns/100-deposit-bonus/index38f9.html                              |    12 [31m-[m
+ temp/custom/img/campaigns/100-deposit-bonus/index3dd6.html                              |    12 [31m-[m
+ temp/custom/img/campaigns/100-deposit-bonus/index7dc1.html                              |    12 [31m-[m
+ temp/custom/img/campaigns/100-deposit-bonus/index9a11.html                              |    12 [31m-[m
+ temp/custom/img/campaigns/100-deposit-bonus/indexd4cd.html                              |    12 [31m-[m
+ temp/custom/img/campaigns/dubai-expo/index.html                                         |    13 [31m-[m
+ temp/custom/img/campaigns/dubai-expo/index2a60.html                                     |    13 [31m-[m
+ temp/custom/img/campaigns/dubai-expo/index38f9.html                                     |    13 [31m-[m
+ temp/custom/img/campaigns/dubai-expo/index3dd6.html                                     |    13 [31m-[m
+ temp/custom/img/campaigns/dubai-expo/index7dc1.html                                     |    13 [31m-[m
+ temp/custom/img/campaigns/dubai-expo/index9a11.html                                     |    13 [31m-[m
+ temp/custom/img/campaigns/dubai-expo/indexd4cd.html                                     |    13 [31m-[m
+ temp/custom/img/campaigns/dubai-expo/spriteset-1.png                                    |   Bin [31m15628[m -> [32m0[m bytes
+ temp/custom/img/campaigns/dubai-expo/spriteset-2.png                                    |   Bin [31m15326[m -> [32m0[m bytes
+ temp/custom/img/campaigns/index.html                                                    |    13 [31m-[m
+ temp/custom/img/campaigns/index2a60.html                                                |    13 [31m-[m
+ temp/custom/img/campaigns/index38f9.html                                                |    13 [31m-[m
+ temp/custom/img/campaigns/index3dd6.html                                                |    13 [31m-[m
+ temp/custom/img/campaigns/index7dc1.html                                                |    13 [31m-[m
+ temp/custom/img/campaigns/index9a11.html                                                |    13 [31m-[m
+ temp/custom/img/campaigns/indexd4cd.html                                                |    13 [31m-[m
+ temp/custom/img/cfi-2019.html                                                           |    14 [31m-[m
+ temp/custom/img/commission-scheme-crypt1a.png                                           |   Bin [31m293306[m -> [32m0[m bytes
+ temp/custom/img/commission-scheme-crypt1b.png                                           |   Bin [31m346451[m -> [32m0[m bytes
+ temp/custom/img/commission-scheme-crypt1c.png                                           |   Bin [31m326393[m -> [32m0[m bytes
+ temp/custom/img/commission-scheme-crypt1d.png                                           |   Bin [31m306232[m -> [32m0[m bytes
+ temp/custom/img/commission-scheme-crypt1t.png                                           |   Bin [31m242588[m -> [32m0[m bytes
+ temp/custom/img/commission-scheme-crypt1t1.png                                          |   Bin [31m447025[m -> [32m0[m bytes
+ temp/custom/img/company/icn-complience.png                                              |   Bin [31m2559[m -> [32m0[m bytes
+ temp/custom/img/company/icn-finance-team.png                                            |   Bin [31m2126[m -> [32m0[m bytes
+ temp/custom/img/company/icn-hr.png                                                      |   Bin [31m1737[m -> [32m0[m bytes
+ temp/custom/img/company/icn-marketing.png                                               |   Bin [31m1736[m -> [32m0[m bytes
+ temp/custom/img/company/index.html                                                      |    15 [31m-[m
+ temp/custom/img/company/index2a60.html                                                  |    15 [31m-[m
+ temp/custom/img/company/index38f9.html                                                  |    15 [31m-[m
+ temp/custom/img/company/index3dd6.html                                                  |    15 [31m-[m
+ temp/custom/img/company/index7dc1.html                                                  |    15 [31m-[m
+ temp/custom/img/company/index9a11.html                                                  |    15 [31m-[m
+ temp/custom/img/company/indexd4cd.html                                                  |    15 [31m-[m
+ temp/custom/img/conn.png                                                                |   Bin [31m1068273[m -> [32m0[m bytes
+ temp/custom/img/copy-icon.png                                                           |   Bin [31m550[m -> [32m0[m bytes
+ temp/custom/img/cr.png                                                                  |   Bin [31m1588704[m -> [32m0[m bytes
+ temp/custom/img/ct.png                                                                  |   Bin [31m835205[m -> [32m0[m bytes
+ temp/custom/img/doge.png                                                                |   Bin [31m22098[m -> [32m0[m bytes
+ temp/custom/img/eth.png                                                                 |   Bin [31m10180[m -> [32m0[m bytes
+ temp/custom/img/favicon.png                                                             |   Bin [31m6202[m -> [32m0[m bytes
+ temp/custom/img/flags.png                                                               |   Bin [31m65960[m -> [32m0[m bytes
+ temp/custom/img/flags/d1.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/d2.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/d3.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/d4.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/d5.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/d6.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/d7.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/d8.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/d9.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/dt1.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/dt2.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/dt3.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/dt4.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/dt5.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/dt6.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/dt7.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/dt8.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/dt9.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/m-desyatnik.html                                                  |    14 [31m-[m
+ temp/custom/img/flags/m1.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/m2.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/m3.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/m4.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/m5.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/m6.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/m7.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/m8.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/m9.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/s1.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/s2.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/s3.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/s4.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/s5.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/s6.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/s7.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/s8.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/s9.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/st1.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/st2.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/st3.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/st4.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/st5.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/st6.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/st7.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/st8.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/st9.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/t1.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/t2.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/t3.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/t4.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/t5.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/t6.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/t7.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/t8.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/t9.html                                                           |    14 [31m-[m
+ temp/custom/img/flags/te1.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/te2.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/te3.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/te4.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/te5.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/te6.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/te7.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/te8.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/te9.html                                                          |    14 [31m-[m
+ temp/custom/img/flags/uchastik.html                                                     |    14 [31m-[m
+ temp/custom/img/flags/yarlik.html                                                       |    14 [31m-[m
+ temp/custom/img/flags@2x.png                            

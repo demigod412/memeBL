@@ -673,7 +673,7 @@ class AutoTaskController extends Controller
                         try {
                             $message = "Your {$bot->name} trading bot has generated a profit of \${$profit}. Keep investing and earning!";
                             $subject = "Bot Trading Profit Earned";
-                            \Mail::to($user->email)->send(new \App\Mail\NewNotification($message, $subject, $user->name));
+                         //   \Mail::to($user->email)->send(new \App\Mail\NewNotification($message, $subject, // $user->name));
                         } catch (\Exception $e) {
                             \Log::error('Failed to send bot trading profit email: ' . $e->getMessage());
                         }
@@ -783,7 +783,7 @@ class AutoTaskController extends Controller
                     try {
                         $message = "Your {$bot->name} bot investment has completed. Total return: \${$totalReturn}, Net profit: \${$totalProfit}";
                         $subject = "Bot Investment Completed";
-                        \Mail::to($user->email)->send(new \App\Mail\NewNotification($message, $subject, $user->name));
+                       // \Mail::to($user->email)->send(new \App\Mail\NewNotification($message, $subject, //$user->name));
                     } catch (\Exception $e) {
                         \Log::error('Failed to send bot completion email: ' . $e->getMessage());
                     }
@@ -816,7 +816,12 @@ class AutoTaskController extends Controller
         if ($isProfit) {
             // Profitable trade
             $profitPercentage = rand((int)($bot->daily_profit_min * 100), (int)($bot->daily_profit_max * 100)) / 100;
-            $profitAmount = ($investment->current_balance * $profitPercentage) / 100;
+            $profitBase = min((float) $investment->current_balance, (float) $investment->investment_amount);
+            $profitAmount = ($profitBase * $profitPercentage) / 100;
+
+            // Safety cap: never allow one trade to generate more than 5% of original investment
+            $maxProfitPerTrade = (float) $investment->investment_amount * 0.05;
+            $profitAmount = min($profitAmount, $maxProfitPerTrade);
 
             $exitPrice = $tradeType === 'BUY'
                 ? $entryPrice * (1 + $profitPercentage / 100)

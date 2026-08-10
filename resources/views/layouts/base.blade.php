@@ -383,16 +383,16 @@
                                     <div class="swiper-slide">
                                         <div class="xb-testimonial">
                                             <div class="xb-item--avater ul_li">
-                                                <div class="xb-item--img">
-                                                    <img src="{{ asset('public/images/testimonial.jpg') }}" alt="User Testimonial">
-                                                </div>
+                                               <!--  <div class="xb-item--img">
+                                                    <img src="{{ asset('public/images/ven.jpg') }}" alt="User Testimonial">
+                                                </div>  -->
                                                 <div class="xb-item--holder">
                                                     <div class="xb-item--nationality ul_li">
-                                                        <img src="{{ asset('public/images/tes-flag.png') }}" alt="USA Flag">
-                                                        <span>United States</span>
+                                                        <img src="{{ asset('public/images/ven.png') }}" >
+                                                        <span>Venezuela</span>
                                                     </div>
-                                                    <h2 class="xb-item--title">Michael Thompson</h2>
-                                                    <span class="xb-item--sub-title">Professional Trader</span>
+                                                    <h2 class="xb-item--title">Anacleto Longoria</h2>
+                                                   
                                                 </div>
                                             </div>
                                             <p class="xb-item--comment">"Meme BULL's algorithms have consistently outperformed my manual trading. The combination of technical analysis and meme sentiment is revolutionary. My portfolio is up 47% in 3 months!"</p>
@@ -401,16 +401,17 @@
                                     <div class="swiper-slide">
                                         <div class="xb-testimonial">
                                             <div class="xb-item--avater ul_li">
-                                                <div class="xb-item--img">
-                                                    <img src="{{ asset('public/images/testimonial.jpg') }}" alt="User Testimonial">
-                                                </div>
+                                               <!--
+ <div class="xb-item--img">
+                                                    <img src="{{ asset('public/images/jpy.jpg') }}" alt="User Testimonial">
+                                                </div> -->
                                                 <div class="xb-item--holder">
                                                     <div class="xb-item--nationality ul_li">
-                                                        <img src="{{ asset('public/images/tes-flag.png') }}" alt="UK Flag">
-                                                        <span>United Kingdom</span>
+                                                        <img src="{{ asset('public/images/jpy.png') }}" alt="">
+                                                        <span>Japan</span>
                                                     </div>
-                                                    <h2 class="xb-item--title">Sarah Johnson</h2>
-                                                    <span class="xb-item--sub-title">Beginner Investor</span>
+                                                    <h2 class="xb-item--title">Miyuki Kurota</h2>
+                                                   
                                                 </div>
                                             </div>
                                             <p class="xb-item--comment">"As someone new to crypto, Meme BULL made automated trading accessible. The educational public and intuitive interface helped me start confidently. I'm earning while learning!"</p>
@@ -419,17 +420,16 @@
                                     <div class="swiper-slide">
                                         <div class="xb-testimonial">
                                             <div class="xb-item--avater ul_li">
-                                                <div class="xb-item--img">
-                                                    <img src="{{ asset('public/images/testimonial.jpg') }}" alt="User Testimonial">
-                                                </div>
+                                              <!--  <div class="xb-item--img">
+                                                    <img src="{{ asset('public/images/sing.jpg') }}" alt="User Testimonial">
+                                                </div>    -->
                                                 <div class="xb-item--holder">
                                                     <div class="xb-item--nationality ul_li">
-                                                        <img src="{{ asset('public/images/tes-flag.png') }}" alt="Singapore Flag">
+                                                        <img src="{{ asset('public/images/sing-flag.png') }}" alt="Singapore Flag">
                                                         <span>Singapore</span>
                                                     </div>
                                                     <h2 class="xb-item--title">David Chen</h2>
-                                                    <span class="xb-item--sub-title">Crypto Enthusiast</span>
-                                                </div>
+                                                     </div>
                                             </div>
                                             <p class="xb-item--comment">"The risk management features give me peace of mind while the algorithms chase gains. Meme BULL strikes the perfect balance between automation and user control."</p>
                                         </div>
@@ -470,11 +470,16 @@
                         <ul class="xb-item--footer_widget-list">
                             <li><a href="tel:+11234567890">+1 (123) 456-7890</a></li>
                             <li class="underline"><a href="mailto:support@memebull.com">support@memebull.com</a></li>
-                            <li class="underline"><a href="mailto:partners@memebull.com">partners@memebull.com</a></li>
+                            <li class="underline"><a href="mailto:info@memebull.com">info@memebull.com</a></li>
                         </ul>
                         <ul class="ul_li xb-item--social-link">
-                            <li><a href="https://www.facebook.com/share/1ARoAVNqiH/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a></li>
-                            <li><a href="https://www.youtube.com/@MemeBull_AI"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="https://www.facebook.com/profile.php?id=100063648489841"><i class="fab fa-facebook"></i></a></li>
+
+  
+    <li><a href="https://www.instagram.com/memebull.ai?igsh=NTc4MTIwNjQ2YQ=="><i class="fab fa-instagram"></i></a></li>
+
+
+<li><a href="https://t.me/+xRtLO7CvrvM3MmQx"><i class="fab fa-telegram-plane"></i></a></li>                          <li><a href="https://www.youtube.com/@MemeBull_AI"><i class="fab fa-youtube"></i></a></li>
                             <li><a href="https://www.tiktok.com/@memebull_?_t=ZS-8w6v6a5si0u&_r=1"><i class="fab fa-tiktok"></i></a></li>
                              <li><a href="https://medium.com/@zestful_mindaro_panda_6/how-ai-is-redefining-crypto-trading-the-meme-bull-approach-to-financial-freedom-07aae101e52c"><i class="fab fa-medium"></i></a></li>
                            
@@ -635,5 +640,15 @@
 </html>
 
 
-
+ <!-- Language Selector -->
+    <div class="gtranslate_wrapper"></div>
+<script>
+    window.gtranslateSettings = {
+        default_language: "en",
+        alt_flags:{"en":"usa"},
+        wrapper_selector: ".gtranslate_wrapper",
+        flag_style: "3d",
+    };
+</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 

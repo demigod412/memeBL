@@ -35,7 +35,13 @@ Route::get('/current-language', [LanguageController::class, 'getCurrentLanguage'
 
 
 //cron url
-Route::get('/cron', [AutoTaskController::class, 'autotopup'])->name('cron');
+Route::get('/cron/{secret}', function ($secret) {
+    if (!hash_equals((string) env('CRON_SECRET'), (string) $secret)) {
+        abort(403);
+    }
+
+    return app(\App\Http\Controllers\AutoTaskController::class)->autotopup();
+})->where('secret', '[A-Za-z0-9_-]+')->name('cron');
 
 Route::get('/run-crypto-update', function () {
     if (request('key') !== env('CRON_KEY')) {

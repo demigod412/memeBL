@@ -445,14 +445,14 @@
     <!-- Event 1 with YouTube Preview -->
     <div class="event-card">
       <div class="event-header">
-        <span class="event-type">Team Meeting</span>
-        <h3 class="event-title">Q4 Planning Session</h3>
+        <span class="event-type">Youtube Session</span>
+        <h3 class="event-title">Understanding Cryptocurrency</h3>
       </div>
       
-      <div class="youtube-preview" onclick="openVideoModal('8mmMUdrTyn4', 'Q4 Planning Session Preview')">
+      <div class="youtube-preview" onclick="openVideoModal('Zoz9gvhLgpM', 'Understanding Cryptocurrency')">
         <!-- YouTube Embed - Replace with actual video ID -->
         <iframe 
-          src="https://www.youtube.com/embed/8mmMUdrTyn4?rel=0&amp;controls=1&amp;showinfo=0&amp;modestbranding=1" 
+          src="https://www.youtube.com/embed/Zoz9gvhLgpM?rel=0&amp;controls=1&amp;showinfo=0&amp;modestbranding=1" 
           frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen>
@@ -461,25 +461,25 @@
       
       <div class="event-details">
         <div class="event-meta">
-          <span class="event-date">📅 Oct 15, 2024</span>
-          <span class="event-time">⏰ 10:00 AM - 11:30 AM</span>
+          <span class="event-date">📅 Apr 11, 2026</span>
+          <span class="event-time">⏰ 2:00 PM - 4:00 PM</span>
         </div>
-        <p class="event-description">Quarterly planning meeting to discuss Q4 objectives, team goals, and project roadmap.</p>
+        <p class="event-description">This workshop introduces participants to cryptocurrency, a form of digital money that operates without traditional banks or central authorities.</p>
       </div>
-      <button class="event-action" onclick="openEventDetails(1)">View Details</button>
+      <!-- <button class="event-action" onclick="openEventDetails(1)">View Details</button>   -->
     </div>
     
     <!-- Event 2 with YouTube Preview -->
     <div class="event-card">
       <div class="event-header">
-        <span class="event-type">Product Launch</span>
-        <h3 class="event-title">Feature Release v2.5</h3>
+        <span class="event-type">Investing Guide</span>
+        <h3 class="event-title">Cryptocurrency and Smart Investing</h3>
       </div>
       
-      <div class="youtube-preview" onclick="openVideoModal('SrByGM8kg6E', 'Feature Release v2.5 Preview')">
+      <div class="youtube-preview" onclick="openVideoModal('JTRN7h6jn38', 'Cryptocurrency and Smart Investing')">
         <!-- YouTube Embed - Replace with actual video ID -->
         <iframe 
-          src="https://www.youtube.com/embed/SrByGM8kg6E?rel=0&amp;controls=1&amp;showinfo=0&amp;modestbranding=1" 
+          src="https://www.youtube.com/embed/JTRN7h6jn38?rel=0&amp;controls=1&amp;showinfo=0&amp;modestbranding=1" 
           frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen>
@@ -488,25 +488,25 @@
       
       <div class="event-details">
         <div class="event-meta">
-          <span class="event-date">📅 Oct 18, 2024</span>
-          <span class="event-time">⏰ 2:00 PM - 4:00 PM</span>
+          <span class="event-date">📅 Apr 24, 2026</span>
+          <span class="event-time">⏰ 3:00 PM - 5:00 PM</span>
         </div>
-        <p class="event-description">Launch event for new product features including AI integration and enhanced analytics.</p>
+        <p class="event-description">This workshop is designed to help beginners understand why cryptocurrencies like Bitcoin and Solana are attracting global attention and how they fit into the future of money, technology, and investing.</p>
       </div>
-      <button class="event-action" onclick="openEventDetails(2)">View Details</button>
+      <!-- <button class="event-action" onclick="openEventDetails(2)">View Details</button>  -->
     </div>
     
     <!-- Event 3 with YouTube Preview -->
     <div class="event-card">
       <div class="event-header">
         <span class="event-type">Workshop</span>
-        <h3 class="event-title">React Best Practices</h3>
+        <h3 class="event-title">Crypto & Artificial Intelligence</h3>
       </div>
       
-      <div class="youtube-preview" onclick="openVideoModal('DtZyag828Yw', 'React Best Practices Preview')">
+      <div class="youtube-preview" onclick="openVideoModal('ZTqdIV84Ru8', 'Crypto & Artificial Intelligence')">
         <!-- YouTube Embed - Replace with actual video ID -->
         <iframe 
-          src="https://www.youtube.com/embed/DtZyag828Yw?rel=0&amp;controls=1&amp;showinfo=0&amp;modestbranding=1" 
+          src="https://www.youtube.com/embed/ZTqdIV84Ru8?rel=0&amp;controls=1&amp;showinfo=0&amp;modestbranding=1" 
           frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen>
@@ -515,25 +515,25 @@
       
       <div class="event-details">
         <div class="event-meta">
-          <span class="event-date">📅 Oct 20, 2024</span>
-          <span class="event-time">⏰ 9:00 AM - 12:00 PM</span>
+          <span class="event-date">📅 May 12, 2026</span>
+          <span class="event-time">⏰ 4:00 PM - 6:00 PM</span>
         </div>
-        <p class="event-description">Advanced React patterns and best practices workshop for senior developers.</p>
+        <p class="event-description">This workshop explores how Bitcoin and Artificial Intelligence (AI) are emerging as two of the most transformative technologies of our time and why their combined impact is accelerating global change</p>
       </div>
-      <button class="event-action" onclick="openEventDetails(3)">View Details</button>
+     <!-- <button class="event-action" onclick="openEventDetails(3)">View Details</button> -->
     </div>
     
     <!-- Event 4 with YouTube Preview -->
     <div class="event-card">
       <div class="event-header">
-        <span class="event-type">Conference</span>
-        <h3 class="event-title">Tech Innovation Summit</h3>
+        <span class="event-type">Workshop</span>
+        <h3 class="event-title">Navigating the Bitcoin & AI Revolution</h3>
       </div>
       
-      <div class="youtube-preview" onclick="openVideoModal('CGgyyTTv0yw', 'Tech Innovation Summit Preview')">
+      <div class="youtube-preview" onclick="openVideoModal('wtW6ESSmKKY', 'Navigating the Bitcoin & AI Revolution')">
         <!-- YouTube Embed - Replace with actual video ID -->
         <iframe 
-          src="https://www.youtube.com/embed/CGgyyTTv0yw?rel=0&amp;controls=1&amp;showinfo=0&amp;modestbranding=1" 
+          src="https://www.youtube.com/embed/wtW6ESSmKKY?rel=0&amp;controls=1&amp;showinfo=0&amp;modestbranding=1" 
           frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen>
@@ -542,12 +542,12 @@
       
       <div class="event-details">
         <div class="event-meta">
-          <span class="event-date">📅 Oct 25, 2024</span>
-          <span class="event-time">⏰ 8:00 AM - 5:00 PM</span>
+          <span class="event-date">📅 May 25, 2026</span>
+          <span class="event-time">⏰ 2:00 PM - 5:00 PM</span>
         </div>
-        <p class="event-description">Annual technology conference featuring keynote speakers and networking opportunities.</p>
+        <p class="event-description">This workshop provides a forward-looking guide to understanding how Bitcoin and Artificial Intelligence (AI) are expected to shape the global economy, technology, and society heading into 2026 and beyond.</p>
       </div>
-      <button class="event-action" onclick="openEventDetails(4)">View Details</button>
+      <!-- <button class="event-action" onclick="openEventDetails(4)">View Details</button>  -->
     </div>
   </div>
 </div>

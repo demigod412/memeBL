@@ -8,7 +8,7 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="{{ asset('storage/app/public/' . $settings->favicon) }}" rel="icon" type="image/x-icon" />
+<link href="{{ asset('storage/' . $settings->favicon) }}" rel="icon" type="image/x-icon" />
     <!-- Inter Font -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -155,7 +155,7 @@
       <div class="flex items-center space-x-4">
         <!-- Logo -->
         <a href="{{ route('dashboard') }}" class="flex items-center space-x-3 group">
-          <img src="{{ asset('storage/app/public/'.$settings->logo)}}" class="h-8 w-auto" alt="Logo" />
+          <img src="{{ asset('storage/'.$settings->logo)}}" class="h-8 w-auto" alt="Logo" />
           
         </a>
 
@@ -173,6 +173,16 @@
         </div>
       </div>
 
+ <div>
+
+      <br><hr>
+      
+<div class="gtranslate_wrapper"></div>
+<script>window.gtranslateSettings = {"default_language":"en","native_language_names":true,"detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper","flag_size":16,"switcher_horizontal_position":"inline","switcher_open_direction":"top"}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/dwf.js" defer></script>
+
+    </div>
+        
       <!-- Right Section: Actions & User -->
       <div class="flex items-center space-x-2">
 
@@ -667,6 +677,16 @@
                         
                     </a>
                 </li>
+
+                   <li>
+                    <a href="public/docs/investment_policy.pdf" target="_blank" rel="noopener noreferrer"
+                       class="group relative flex items-center px-3 py-2 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/50 transition-colors duration-150 {{ request()->routeIs('signals') ? 'bg-blue-50 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 font-medium' : '' }}">
+                          <i data-lucide="arrow-left-right" class="w-5 h-5 mr-3"></i>
+                   Investment Policy
+                      
+                        
+                    </a>
+                </li>
             </ul>
         </div>
 
@@ -832,24 +852,7 @@
             height: 20px !important;
           }
         </style>
-        <script>
-          if (!window.gtranslateSettingsMobileNav) {
-            window.gtranslateSettingsMobileNav = {
-              "default_language": "en",
-              "wrapper_selector": ".gtranslate_wrapper_mobile_nav",
-              "flag_style": "3d",
-              "alt_flags": {"en": "usa"},
-              "switcher_horizontal_position": "center",
-              "switcher_vertical_position": "bottom"
-            };
-
-            // Load script for mobile nav if not already loaded
-            var script = document.createElement('script');
-            script.src = 'https://cdn.gtranslate.net/widgets/latest/float.js';
-            script.defer = true;
-            document.head.appendChild(script);
-          }
-        </script>
+    
 
         <i data-lucide="globe" class="w-6 h-6 text-gray-500 group-hover:text-blue-600 transition-colors duration-200"></i>
       </div>
@@ -948,7 +951,7 @@
 
       <!-- Quick Actions Grid -->
       <div class="grid grid-cols-2 gap-4 mb-6">
-        <a href="{{ route('mplans') }}"
+        <a href="{{ route('user.bots.index') }}"
            class="flex flex-col items-center p-4 rounded-xl
                   bg-gray-800 border border-gray-700
                   hover:bg-gray-700 hover:shadow-lg hover:scale-105 transition-all duration-300
@@ -971,22 +974,7 @@
 
       <!-- Menu Links -->
       <div class="space-y-2">
-        <a href="{{ route('copy.dashboard') }}" class="flex items-center p-3 rounded-lg text-gray-100
-                          hover:bg-gray-800
-                          transition-colors duration-200 group">
-          <i data-lucide="copy" class="w-5 h-5 mr-3 text-blue-400
-                                     group-hover:scale-110 transition-transform duration-300"></i>
-          <span class="font-medium">Copy Trading</span>
-          <!--<span class="ml-auto text-xs font-bold text-green-400">New</span>-->
-        </a>
-
-        <a href="{{ route('transferview') }}" class="flex items-center p-3 rounded-lg text-gray-100
-                          hover:bg-gray-800
-                          transition-colors duration-200 group">
-          <i data-lucide="refresh-ccw" class="w-5 h-5 mr-3 text-purple-400
-                                             group-hover:rotate-180 transition-transform duration-500"></i>
-          <span class="font-medium">Transfer Funds</span>
-        </a>
+        
 
         {{-- <a href="{{ route('assetbalance') }}" class="flex items-center p-3 rounded-lg text-gray-100
                           hover:bg-gray-800

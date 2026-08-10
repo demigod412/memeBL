@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Mail;
-
 use App\Models\Settings;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
@@ -13,7 +11,7 @@ class WelcomeEmail extends Mailable
 {
     use Queueable, SerializesModels;
     public $user;
-
+    
     /**
      * Create a new message instance.
      *
@@ -23,7 +21,7 @@ class WelcomeEmail extends Mailable
     {
         $this->user = $user;
     }
-
+    
     /**
      * Build the message.
      *
@@ -32,7 +30,12 @@ class WelcomeEmail extends Mailable
     public function build()
     {
         $settings = Settings::find(1);
-
-        return $this->markdown('emails.welcome')->subject("Welcome to $settings->site_name");
+        
+        return $this->view('emails.welcome')  // Changed from markdown to view
+                    ->subject("Welcome to $settings->site_name - Your AI Trading Bot is Ready!")
+                    ->with([
+                        'user' => $this->user,
+                        'settings' => $settings
+                    ]);
     }
 }

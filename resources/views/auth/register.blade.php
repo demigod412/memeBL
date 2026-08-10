@@ -17,7 +17,7 @@
                 <div class="text-center mb-8">
                     <!-- Logo 
                     <div class="flex items-center justify-center mb-6">
-                        <img src="{{ asset('storage/app/public/'.$settings->logo)}}"
+                        <img src="{{ asset('storage/'.$settings->logo)}}"
                              class="h-12 sm:h-16 w-auto"
                              alt="{{ $settings->site_name }}" />
                     </div>
@@ -416,11 +416,11 @@
                             <div class="flex-1">
                                 <label for="agree" class="text-sm font-bold text-gray-200 leading-relaxed">
                                     I agree to {{ $settings->site_name }}'s
-                                    <a href="rules" target="_blank" class="text-blue-400 hover:text-blue-300 font-bold underline underline-offset-2">
+                                    <a href="useragreement" target="_blank" class="text-blue-400 hover:text-blue-300 font-bold underline underline-offset-2">
                                         Terms and Conditions
                                     </a>
                                     and acknowledge that I have read and understood the
-                                    <a href="#" target="_blank" class="text-blue-400 hover:text-blue-300 font-bold underline underline-offset-2">
+                                    <a href="policy" target="_blank" class="text-blue-400 hover:text-blue-300 font-bold underline underline-offset-2">
                                         Privacy Policy
                                     </a>
                                 </label>

