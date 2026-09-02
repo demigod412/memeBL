@@ -13,3 +13,19 @@ yarn-error.log
 /.idea
 /.vscode
 public/Memebull-backup-*.tar.gz
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Laravel generated files
+/storage/framework/*
+/storage/logs/*
+/storage/app/*
+!/storage/app/.gitignore
+!/storage/framework/.gitignore
+!/storage/logs/.gitignore
+
+# Local/editor files
+*.swp
