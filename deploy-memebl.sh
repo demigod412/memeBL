@@ -103,7 +103,6 @@ ask DB_USER  "MySQL username" "$DB_USER"
 [[ "$DB_NAME" =~ ^[A-Za-z0-9_]+$ && "$DB_USER" =~ ^[A-Za-z0-9_]+$ ]] || die "DB name/user: letters, digits, underscore only."
 ask TZ_NAME  "App timezone (e.g. UTC, Africa/Lagos)" "$TZ_NAME"
 yn NEW_APP_KEY "Generate a NEW APP_KEY? (recommended - the key in the repo's .env is public)" "$NEW_APP_KEY"
-yn IMPORT_SQL  "Import memeauto_billinew_backup.sql from the repo if the database is empty? (n = run migrations instead)" "$IMPORT_SQL"
 
 [[ -n "$DB_PASS" ]] || DB_PASS="$(openssl rand -base64 48 | tr -dc 'A-Za-z0-9' | cut -c1-28)"
 
@@ -117,7 +116,7 @@ echo " SSL email   : $ADMIN_EMAIL   (method: $([[ $CERT_METHOD == 1 ]] && echo H
 echo " Repo        : $REPO_URL ($BRANCH)"
 echo " Install dir : $APP_DIR"
 echo " Database    : $DB_NAME / $DB_USER"
-echo " New APP_KEY : $NEW_APP_KEY   Import SQL: $IMPORT_SQL"
+echo " New APP_KEY : $NEW_APP_KEY   (database is imported from the repo SQL dump if empty)"
 echo "-----------------------------------------"
 yn GO "Proceed?" y
 [[ "$GO" == y ]] || die "Aborted."
@@ -256,32 +255,39 @@ grep -q '^CRON_KEY=' .env || set_env CRON_KEY "$(openssl rand -hex 16)"
 # ----------------------------------------------------------------------------
 step "Composer dependencies"
 # ----------------------------------------------------------------------------
-composer install --no-dev --optimize-autoloader --no-interaction --no-progress
+# --no-scripts: this app queries the `settings` table while booting, so artisan
+# cannot run until the database has been imported. Scripts run after the import.
+composer install --no-dev --optimize-autoloader --no-interaction --no-progress --no-scripts
 
+# ----------------------------------------------------------------------------
+step "Database schema / data"
+# ----------------------------------------------------------------------------
+# The app needs seeded rows (e.g. settings id=1) just to boot, so the SQL dump
+# is the install source; migrations alone are not enough on an empty database.
+TABLES=$(mysql -N -e "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='${DB_NAME}'")
+if [[ "$TABLES" -eq 0 ]]; then
+  [[ -f memeauto_billinew_backup.sql ]] || die "memeauto_billinew_backup.sql not found in the repo; the app cannot boot on an empty database."
+  info "Importing memeauto_billinew_backup.sql ..."
+  mysql "$DB_NAME" < memeauto_billinew_backup.sql
+else
+  info "Database already has $TABLES tables - skipping import (running pending migrations only)"
+fi
+
+# ----------------------------------------------------------------------------
+step "Application key + package discovery"
+# ----------------------------------------------------------------------------
 if [[ "$NEW_APP_KEY" == y ]] && [[ ! -f /root/.memebl-key-generated ]]; then
   php artisan key:generate --force
   touch /root/.memebl-key-generated
 elif ! grep -Eq '^APP_KEY=.+' .env; then
   php artisan key:generate --force
 fi
-
-# ----------------------------------------------------------------------------
-step "Database schema / data"
-# ----------------------------------------------------------------------------
-TABLES=$(mysql -N -e "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='${DB_NAME}'")
-if [[ "$TABLES" -eq 0 ]]; then
-  if [[ "$IMPORT_SQL" == y && -f memeauto_billinew_backup.sql ]]; then
-    info "Importing memeauto_billinew_backup.sql ..."
-    mysql "$DB_NAME" < memeauto_billinew_backup.sql
-  else
-    info "Running migrations"
-    php artisan migrate --force
-  fi
-else
-  info "Database already has $TABLES tables - skipping import (running pending migrations only)"
+php artisan package:discover --ansi
+if [[ "$TABLES" -ne 0 ]]; then
   php artisan migrate --force || warn "Migrations reported an issue; check manually."
 fi
 
+mkdir -p "$APP_DIR"/storage/framework/{cache/data,sessions,views} "$APP_DIR"/storage/logs
 # NOTE: config:cache / route:cache are deliberately NOT used - this app calls
 # env() directly in routes/web.php and has closure routes, so caching breaks it.
 php artisan storage:link 2>/dev/null || true
@@ -290,6 +296,7 @@ php artisan optimize:clear || true
 # ----------------------------------------------------------------------------
 step "Permissions"
 # ----------------------------------------------------------------------------
+mkdir -p "$APP_DIR"/storage/framework/{cache/data,sessions,views} "$APP_DIR"/storage/logs "$APP_DIR"/storage/app/public "$APP_DIR"/bootstrap/cache
 chown -R root:root "$APP_DIR"
 chown -R www-data:www-data "$APP_DIR/storage" "$APP_DIR/bootstrap/cache"
 [[ -d "$APP_DIR/themes" ]] && chown -R www-data:www-data "$APP_DIR/themes"
