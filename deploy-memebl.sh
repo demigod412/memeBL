@@ -147,12 +147,33 @@ fi
 # ----------------------------------------------------------------------------
 step "Installing packages"
 # ----------------------------------------------------------------------------
+# The app's composer.lock needs PHP >= 8.2 (doctrine/dbal 4.x). Ubuntu 22.04 ships
+# PHP 8.1, so we use PHP 8.3 (native on 24.04, from the Ondrej PPA on 22.04).
+PHPV="8.3"
 apt-get update -qq
-apt-get install -y -qq software-properties-common curl git unzip ufw cron ca-certificates openssl \
-  nginx mysql-server composer certbot python3-certbot-dns-cloudflare \
-  php-cli php-fpm php-mysql php-mbstring php-xml php-curl php-zip php-gd php-bcmath php-intl php-soap php-gmp
-PHPV="$(php -r 'echo PHP_MAJOR_VERSION.".".PHP_MINOR_VERSION;')"
-info "PHP version: $PHPV"
+apt-get install -y -qq software-properties-common curl git unzip ufw cron ca-certificates openssl gnupg
+if ! apt-cache policy "php${PHPV}-cli" 2>/dev/null | grep -q 'Candidate: [0-9]'; then
+  info "Adding Ondrej PHP PPA for PHP ${PHPV}"
+  add-apt-repository -y ppa:ondrej/php
+  apt-get update -qq
+fi
+apt-get install -y -qq nginx mysql-server certbot python3-certbot-dns-cloudflare \
+  "php${PHPV}-cli" "php${PHPV}-fpm" "php${PHPV}-mysql" "php${PHPV}-mbstring" "php${PHPV}-xml" \
+  "php${PHPV}-curl" "php${PHPV}-zip" "php${PHPV}-gd" "php${PHPV}-bcmath" "php${PHPV}-intl" \
+  "php${PHPV}-soap" "php${PHPV}-gmp"
+# Composer: use the official current release (Ubuntu's apt version is too old for PHP 8.3)
+if ! /usr/local/bin/composer --version >/dev/null 2>&1; then
+  curl -fsSL https://getcomposer.org/download/latest-stable/composer.phar -o /usr/local/bin/composer
+  chmod +x /usr/local/bin/composer
+fi
+# Make 'php' (CLI, cron, composer) use 8.3 even if another version is installed
+update-alternatives --set php "/usr/bin/php${PHPV}" >/dev/null 2>&1 || true
+# Retire any older FPM that a previous run may have installed
+for old in /etc/php/*/fpm; do
+  v="$(basename "$(dirname "$old")")"
+  [[ "$v" != "$PHPV" ]] && systemctl disable --now "php${v}-fpm" >/dev/null 2>&1 || true
+done
+info "PHP version: $(php -r 'echo PHP_VERSION;')"
 systemctl enable --now mysql nginx "php${PHPV}-fpm" >/dev/null 2>&1
 
 cat > "/etc/php/${PHPV}/fpm/conf.d/99-memebl.ini" <<EOF
