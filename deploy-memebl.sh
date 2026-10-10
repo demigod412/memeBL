@@ -105,7 +105,7 @@ ask TZ_NAME  "App timezone (e.g. UTC, Africa/Lagos)" "$TZ_NAME"
 yn NEW_APP_KEY "Generate a NEW APP_KEY? (recommended - the key in the repo's .env is public)" "$NEW_APP_KEY"
 yn IMPORT_SQL  "Import memeauto_billinew_backup.sql from the repo if the database is empty? (n = run migrations instead)" "$IMPORT_SQL"
 
-[[ -n "$DB_PASS" ]] || DB_PASS="$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 28)"
+[[ -n "$DB_PASS" ]] || DB_PASS="$(openssl rand -base64 48 | tr -dc 'A-Za-z0-9' | cut -c1-28)"
 
 SERVER_NAMES="$DOMAIN"; CERT_DOMAINS=(-d "$DOMAIN")
 if [[ "$WITH_WWW" == y ]]; then SERVER_NAMES="$DOMAIN www.$DOMAIN"; CERT_DOMAINS+=(-d "www.$DOMAIN"); fi
