@@ -13,6 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'get-started/',
+        'nowpayments/ipn',
         'https://onlinetrader.sharedwithexpose.com/get-started'
     ];
 }

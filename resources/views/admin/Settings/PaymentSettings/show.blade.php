@@ -37,6 +37,9 @@ if (Auth('admin')->User()->dashboard_style == 'light') {
                                     <a href="#gate" class="nav-link" data-toggle="tab">Gateways</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="#nowpay" class="nav-link" data-toggle="tab">NOWPayments</a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="#trans" class="nav-link" data-toggle="tab">Transfer</a>
                                 </li>
                             </ul>
@@ -52,6 +55,9 @@ if (Auth('admin')->User()->dashboard_style == 'light') {
                                 </div>
                                 <div class="tab-pane fade" id="gate">
                                     @include('admin.Settings.PaymentSettings.gateway')
+                                </div>
+                                <div class="tab-pane fade" id="nowpay">
+                                    @include('admin.Settings.PaymentSettings.nowpayments')
                                 </div>
                                 <div class="tab-pane fade" id="trans">
                                     @include('admin.Settings.PaymentSettings.transfers')
@@ -156,6 +162,42 @@ if (Auth('admin')->User()->dashboard_style == 'light') {
             });
 
 
+
+            // Submit NOWPayments form
+            $('#nowpaymentsform').on('submit', function() {
+                $.ajax({
+                    url: "{{ route('updatenowpayments') }}",
+                    type: 'POST',
+                    data: $('#nowpaymentsform').serialize(),
+                    success: function(response) {
+                        $.notify({
+                            icon: 'flaticon-alarm-1',
+                            title: response.status === 200 ? 'Success' : 'Error',
+                            message: response.status === 200 ? response.success : response.error,
+                        }, {
+                            type: response.status === 200 ? 'success' : 'danger',
+                            allow_dismiss: true,
+                            newest_on_top: false,
+                            placement: {
+                                from: "top",
+                                align: "right"
+                            },
+                            offset: 20,
+                            spacing: 10,
+                            z_index: 1031,
+                            delay: 5000,
+                            timer: 1000,
+                            animate: {
+                                enter: 'animated fadeInDown',
+                                exit: 'animated fadeOutUp'
+                            },
+                        });
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    },
+                });
+            });
 
             // Submit Gatway form
             $('#gatewayform').on('submit', function() {

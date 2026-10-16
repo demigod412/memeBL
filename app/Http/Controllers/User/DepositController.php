@@ -87,6 +87,16 @@ class DepositController extends Controller
     public function payment(Request $request)
     {
         $methodname =  Wdmethod::firstWhere('name', $request->session()->get('payment_mode'));
+
+        if ($methodname && $methodname->name == NowPaymentsController::METHOD_NAME) {
+            return view("user.nowpayments")
+                ->with(array(
+                    'amount' => $request->session()->get('amount'),
+                    'payment_mode' => $methodname,
+                    'title' => 'Pay with Crypto',
+                ));
+        }
+
         return view("user.payment")
             ->with(array(
                 'amount' => $request->session()->get('amount'),

@@ -7,6 +7,7 @@ use App\Http\Controllers\User\WithdrawalController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\DepositController;
 use App\Http\Controllers\User\PaystackController;
+use App\Http\Controllers\User\NowPaymentsController;
 use App\Http\Controllers\User\UserCopyTradingController;
 use App\Http\Controllers\User\CopyTradingController;
 use App\Http\Controllers\User\UserBotController;
@@ -167,6 +168,9 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('dashboard')->group(func
         Route::post('pay', [PaystackController::class, 'redirectToGateway'])->name('pay.paystack');
         Route::get('paystackcallback', [PaystackController::class, 'handleGatewayCallback']);
         Route::post('savedeposit', [DepositController::class, 'savedeposit'])->name('savedeposit');
+        // NOWPayments crypto routes
+        Route::post('nowpayments/pay', [NowPaymentsController::class, 'createInvoice'])->name('nowpayments.pay');
+        Route::get('nowpayments/return', [NowPaymentsController::class, 'paymentReturn'])->name('nowpayments.return');
            Route::post('userwithdrawal', [WithdrawalController::class, 'userwithdrawal'])->name('userwithdrawal');
         // Flutterwave Routes here
         // Route::post('/payviaflutterwave', [FlutterwaveController::class, 'initialize'])->name('paybyflutterwave');
@@ -223,6 +227,8 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('dashboard')->group(func
     });
 });
 Route::post('sendcontact', 'App\Http\Controllers\User\UsersController@sendcontact')->name('enquiry');
+// NOWPayments IPN (server-to-server, no auth; verified by HMAC signature)
+Route::post('nowpayments/ipn', [NowPaymentsController::class, 'ipn'])->name('nowpayments.ipn');
 
 // Notification Routes
 Route::middleware(['auth:sanctum', 'verified'])->prefix('notifications')->group(function () {

@@ -24,6 +24,7 @@ class PaymentController extends Controller
             'cpd' => Cp_transaction::where('id', '=', '1')->first(),
             'paystack' => Paystack::where('id', '=', '1')->first(),
             'settings' => Settings::where('id', '=', '1')->first(),
+            'nowpayments' => Wdmethod::where('name', 'NOWPayments')->first(),
         ]);
     }
 
@@ -205,6 +206,40 @@ class PaymentController extends Controller
         $settingChanges->save();
 
         return response()->json(['status' => 200, 'success' => ' Gateway Settings updated successfully']);
+    }
+
+    //save NOWPayments credentials and enable/disable it as a deposit method
+    public function updatenowpayments(Request $request)
+    {
+        $status = $request->np_status == 'enabled' ? 'enabled' : 'disabled';
+
+        if ($status == 'enabled' && (empty($request->np_api_key) || empty($request->np_ipn_secret))) {
+            return response()->json(['status' => 422, 'error' => 'API key and IPN secret are required to activate NOWPayments']);
+        }
+
+        $settingChanges = SettingsCont::find(1);
+        $settingChanges->np_api_key = $request->np_api_key;
+        $settingChanges->np_ipn_secret = $request->np_ipn_secret;
+        $settingChanges->np_sandbox = $request->np_sandbox == 'yes' ? 'yes' : 'no';
+        $settingChanges->save();
+
+        $method = Wdmethod::where('name', 'NOWPayments')->first();
+        if (!$method) {
+            $method = new Wdmethod();
+            $method->name = 'NOWPayments';
+            $method->minimum = '10';
+            $method->maximum = '1000000';
+            $method->charges_amount = '0';
+            $method->charges_type = 'percentage';
+            $method->duration = 'Automatic - credited after blockchain confirmation';
+            $method->methodtype = 'crypto';
+            $method->type = 'deposit';
+            $method->defaultpay = 'yes';
+        }
+        $method->status = $status;
+        $method->save();
+
+        return response()->json(['status' => 200, 'success' => 'NOWPayments settings saved. Gateway is ' . $status]);
     }
 
     public function updateTransfer(Request $request)
