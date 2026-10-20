@@ -610,12 +610,12 @@
                             <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blockchain Conference">
                             <div class="event-date">
                                 <span class="day">15</span>
-                                <span class="month">June 2024</span>
+                                <span class="month">Nov 2026</span>
                             </div>
                         </div>
                         <div class="event-content">
                             <span class="event-category">Conference</span>
-                            <h3 class="event-title"><a href="/login">Global Blockchain Summit 2024</a></h3>
+                            <h3 class="event-title"><a href="/login">Global Blockchain Summit 2026</a></h3>
                             <p class="event-excerpt">Join the biggest blockchain event of the year featuring Meme Bull's CEO as keynote speaker.</p>
                             <div class="event-meta">
                                 <div class="event-meta-item">
@@ -639,8 +639,8 @@
                         <div class="event-img">
                             <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Webinar">
                             <div class="event-date">
-                                <span class="day">22</span>
-                                <span class="month">May 2024</span>
+                                <span class="day">09</span>
+                                <span class="month">Dec 2026</span>
                             </div>
                         </div>
                         <div class="event-content">
@@ -668,8 +668,8 @@
                         <div class="event-img">
                             <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Community Meetup">
                             <div class="event-date">
-                                <span class="day">05</span>
-                                <span class="month">July 2024</span>
+                                <span class="day">23</span>
+                                <span class="month">Jan 2027</span>
                             </div>
                         </div>
                         <div class="event-content">
@@ -698,7 +698,7 @@
                             <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Workshop">
                             <div class="event-date">
                                 <span class="day">18</span>
-                                <span class="month">June 2024</span>
+                                <span class="month">Mar 2027</span>
                             </div>
                         </div>
                         <div class="event-content">
@@ -727,13 +727,13 @@
                         <div class="event-img">
                             <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Asia Conference">
                             <div class="event-date">
-                                <span class="day">12</span>
-                                <span class="month">Aug 2024</span>
+                                <span class="day">14</span>
+                                <span class="month">May 2027</span>
                             </div>
                         </div>
                         <div class="event-content">
                             <span class="event-category">Conference</span>
-                            <h3 class="event-title"><a href="/login">Asia Blockchain Week 2024</a></h3>
+                            <h3 class="event-title"><a href="/login">Asia Blockchain Week 2027</a></h3>
                             <p class="event-excerpt">Meme Bull presenting our revolutionary blockchain solutions to the Asian market.</p>
                             <div class="event-meta">
                                 <div class="event-meta-item">
@@ -756,8 +756,8 @@
                         <div class="event-img">
                             <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AMA Session">
                             <div class="event-date">
-                                <span class="day">30</span>
-                                <span class="month">May 2024</span>
+                                <span class="day">08</span>
+                                <span class="month">Jul 2027</span>
                             </div>
                         </div>
                         <div class="event-content">
@@ -809,7 +809,7 @@
                         <div class="countdown-label">Seconds</div>
                     </div>
                 </div>
-                <p class="cta-text wow fadeInUp" data-wow-delay="0.3s">Global Blockchain Summit 2024 - San Francisco, USA</p>
+                <p class="cta-text wow fadeInUp" data-wow-delay="0.3s">Global Blockchain Summit 2026 - San Francisco, USA</p>
                 <a href="/login" class="register-btn wow fadeInUp" data-wow-delay="0.4s">Register Now for Early Bird Tickets</a>
             </div>
         </div>
@@ -827,7 +827,7 @@
                 <div class="col-lg-8 mb-4 mb-lg-0 wow fadeInUp">
                     <div class="calendar-widget">
                         <div class="calendar-header">
-                            <div class="calendar-month">June 2024</div>
+                            <div class="calendar-month">November 2026</div>
                             <div class="calendar-nav">
                                 <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
                                 <button id="next-month"><i class="fas fa-chevron-right"></i></button>
@@ -847,12 +847,12 @@
                         </div>
                         
                         <div class="event-highlight">
-                            <h4 class="highlight-title">Today's Event</h4>
+                            <h4 class="highlight-title">Next Webinar</h4>
                             <div class="highlight-date">
                                 <i class="fas fa-calendar-alt mr-2"></i>
-                                <span>May 22, 2024 - Meme Bull Tokenomics Webinar</span>
+                                <span>Dec 9, 2026 - Meme Bull Tokenomics Webinar</span>
                             </div>
-                            <p>Join our live webinar today at 2:00 PM UTC to learn about Meme Bull's innovative token economics and staking rewards system.</p>
+                            <p>Join our live webinar at 2:00 PM UTC to learn about Meme Bull's innovative token economics and staking rewards system.</p>
                             <a href="/login" class="event-btn mt-3">Join Now</a>
                         </div>
                     </div>
@@ -867,7 +867,7 @@
                                 <div class="mr-3 text-center">
                                     <div style="background: #2DD98F; color: #080b18; width: 50px; height: 50px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
                                         <div style="font-weight: 800; font-size: 18px;">15</div>
-                                        <div style="font-size: 10px; font-weight: 600;">JUN</div>
+                                        <div style="font-size: 10px; font-weight: 600;">NOV</div>
                                     </div>
                                 </div>
                                 <div>
@@ -879,8 +879,21 @@
                             <div class="d-flex align-items-center mb-3">
                                 <div class="mr-3 text-center">
                                     <div style="background: #4D57FF; color: white; width: 50px; height: 50px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                                        <div style="font-weight: 800; font-size: 18px;">23</div>
+                                        <div style="font-size: 10px; font-weight: 600;">JAN</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h6 style="font-size: 16px; margin-bottom: 5px;">London Meetup</h6>
+                                    <p style="font-size: 13px; color: #92939E; margin-bottom: 0;">London, UK</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="mr-3 text-center">
+                                    <div style="background: #1BB8FF; color: #080b18; width: 50px; height: 50px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
                                         <div style="font-weight: 800; font-size: 18px;">18</div>
-                                        <div style="font-size: 10px; font-weight: 600;">JUN</div>
+                                        <div style="font-size: 10px; font-weight: 600;">MAR</div>
                                     </div>
                                 </div>
                                 <div>
@@ -889,29 +902,16 @@
                                 </div>
                             </div>
                             
-                            <div class="d-flex align-items-center mb-3">
+                            <div class="d-flex align-items-center">
                                 <div class="mr-3 text-center">
-                                    <div style="background: #1BB8FF; color: #080b18; width: 50px; height: 50px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                                        <div style="font-weight: 800; font-size: 18px;">30</div>
-                                        <div style="font-size: 10px; font-weight: 600;">MAY</div>
+                                    <div style="background: #9162FF; color: white; width: 50px; height: 50px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                                        <div style="font-weight: 800; font-size: 18px;">08</div>
+                                        <div style="font-size: 10px; font-weight: 600;">JUL</div>
                                     </div>
                                 </div>
                                 <div>
                                     <h6 style="font-size: 16px; margin-bottom: 5px;">AMA Session</h6>
                                     <p style="font-size: 13px; color: #92939E; margin-bottom: 0;">Twitter Spaces</p>
-                                </div>
-                            </div>
-                            
-                            <div class="d-flex align-items-center">
-                                <div class="mr-3 text-center">
-                                    <div style="background: #9162FF; color: white; width: 50px; height: 50px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                                        <div style="font-weight: 800; font-size: 18px;">05</div>
-                                        <div style="font-size: 10px; font-weight: 600;">JUL</div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h6 style="font-size: 16px; margin-bottom: 5px;">London Meetup</h6>
-                                    <p style="font-size: 13px; color: #92939E; margin-bottom: 0;">London, UK</p>
                                 </div>
                             </div>
                         </div>
@@ -961,7 +961,7 @@
         });
         
         // Countdown timer for next major event
-        const countdownDate = new Date('June 15, 2024 09:00:00').getTime();
+        const countdownDate = new Date('November 15, 2026 09:00:00').getTime();
         
         function updateCountdown() {
             const now = new Date().getTime();
@@ -992,15 +992,21 @@
         
         // Calendar functionality
         const today = new Date();
-        let currentMonth = today.getMonth();
-        let currentYear = today.getFullYear();
+        const firstEventMonth = new Date(2026, 10, 1);
+        const calendarStart = today < firstEventMonth ? firstEventMonth : today;
+        let currentMonth = calendarStart.getMonth();
+        let currentYear = calendarStart.getFullYear();
         
         const months = [
             "January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
         ];
         
-        const eventDays = [5, 15, 18, 22, 30]; // Days with events
+        // Days with events, keyed by "year-month" (month is 0-based)
+        const eventDays = {
+            '2026-10': [15], '2026-11': [9], '2027-0': [23],
+            '2027-2': [18], '2027-4': [14], '2027-6': [8]
+        };
         
         function generateCalendar(month, year) {
             $('.calendar-month').text(`${months[month]} ${year}`);
@@ -1018,7 +1024,7 @@
             // Current month days
             for (let day = 1; day <= daysInMonth; day++) {
                 const isToday = day === today.getDate() && month === today.getMonth() && year === today.getFullYear();
-                const hasEvent = eventDays.includes(day);
+                const hasEvent = (eventDays[`${year}-${month}`] || []).includes(day);
                 
                 let dayClass = 'calendar-day';
                 if (isToday) dayClass += ' today';

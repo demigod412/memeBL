@@ -438,7 +438,8 @@
 <div class="events-section">
   <div class="section-header">
     <h2 class="section-title">📅 Workshop & Upcoming Events</h2>
-    <!--<button class="view-all-btn">View All Events →</button> -->
+    <a href="/public/docs/upcoming_events.pdf" target="_blank" rel="noopener noreferrer" class="view-all-btn"
+       style="text-decoration: none;">📄 View Our Upcoming Events</a>
   </div>
   
   <div class="events-grid">
@@ -461,7 +462,7 @@
       
       <div class="event-details">
         <div class="event-meta">
-          <span class="event-date">📅 Apr 11, 2026</span>
+          <span class="event-date">📅 Nov 28, 2026</span>
           <span class="event-time">⏰ 2:00 PM - 4:00 PM</span>
         </div>
         <p class="event-description">This workshop introduces participants to cryptocurrency, a form of digital money that operates without traditional banks or central authorities.</p>
@@ -488,7 +489,7 @@
       
       <div class="event-details">
         <div class="event-meta">
-          <span class="event-date">📅 Apr 24, 2026</span>
+          <span class="event-date">📅 Jan 16, 2027</span>
           <span class="event-time">⏰ 3:00 PM - 5:00 PM</span>
         </div>
         <p class="event-description">This workshop is designed to help beginners understand why cryptocurrencies like Bitcoin and Solana are attracting global attention and how they fit into the future of money, technology, and investing.</p>
@@ -515,7 +516,7 @@
       
       <div class="event-details">
         <div class="event-meta">
-          <span class="event-date">📅 May 12, 2026</span>
+          <span class="event-date">📅 Mar 6, 2027</span>
           <span class="event-time">⏰ 4:00 PM - 6:00 PM</span>
         </div>
         <p class="event-description">This workshop explores how Bitcoin and Artificial Intelligence (AI) are emerging as two of the most transformative technologies of our time and why their combined impact is accelerating global change</p>
@@ -542,10 +543,10 @@
       
       <div class="event-details">
         <div class="event-meta">
-          <span class="event-date">📅 May 25, 2026</span>
+          <span class="event-date">📅 Jun 19, 2027</span>
           <span class="event-time">⏰ 2:00 PM - 5:00 PM</span>
         </div>
-        <p class="event-description">This workshop provides a forward-looking guide to understanding how Bitcoin and Artificial Intelligence (AI) are expected to shape the global economy, technology, and society heading into 2026 and beyond.</p>
+        <p class="event-description">This workshop provides a forward-looking guide to understanding how Bitcoin and Artificial Intelligence (AI) are expected to shape the global economy, technology, and society heading into 2027 and beyond.</p>
       </div>
       <!-- <button class="event-action" onclick="openEventDetails(4)">View Details</button>  -->
     </div>
@@ -604,14 +605,6 @@ function openEventDetails(eventId) {
 
 // Optional: Add this JavaScript for additional interactivity
 document.addEventListener('DOMContentLoaded', function() {
-  const viewAllBtn = document.querySelector('.view-all-btn');
-  if (viewAllBtn) {
-    viewAllBtn.addEventListener('click', function() {
-      // Add your navigation logic here
-      window.location.href = '/events'; // Example URL
-    });
-  }
-  
   // Add click event to YouTube previews
   const youtubePreviews = document.querySelectorAll('.youtube-preview');
   youtubePreviews.forEach(preview => {
