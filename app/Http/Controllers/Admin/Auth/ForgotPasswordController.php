@@ -9,6 +9,7 @@ use App\Mail\NewNotification;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class ForgotPasswordController extends Controller
 {
@@ -24,10 +25,11 @@ class ForgotPasswordController extends Controller
             'email' => 'required|email|exists:admins,email'
         ]);
 
-        $token = time();
+        // Random, single-use code valid for 30 minutes; only its hash is stored
+        $token = strtoupper(Str::random(10));
 
         $admin = Admin::where('email', $request->email)->first();
-        $admin->password_token = $token;
+        $admin->password_token = now()->addMinutes(30)->timestamp . '|' . Hash::make($token);
         $admin->save();
 
         $message = "This is a password reset request from your account. Use $token to reset your password. please ignore if you did not make this request.";
@@ -53,19 +55,16 @@ class ForgotPasswordController extends Controller
     {
         $request->validate([
             'email' => 'required|email',
-            'token' => 'required|exists:admins,password_token',
+            'token' => 'required|string|max:50',
             'password' => $this->passwordRules(),
         ]);
 
         $user = Admin::where('email', $request->email)->first();
-        if (!$user) {
-            return redirect()->back()
-                ->with('message', 'This Email does not exist');
-        }
+        [$expires, $hash] = array_pad(explode('|', (string) optional($user)->password_token, 2), 2, '');
 
-        if ($user->password_token != $request->token) {
+        if (!$user || !$hash || (int) $expires < now()->timestamp || !Hash::check(strtoupper(trim($request->token)), $hash)) {
             return redirect()->back()
-                ->with('message', 'Incorrect token');
+                ->with('message', 'Invalid or expired token. Request a new one.');
         }
 
         Admin::where('email', $request->email)->update([

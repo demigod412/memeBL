@@ -41,13 +41,6 @@ class ManageDepositController extends Controller
     ]);
 
 
-        $response = $this->callServer('earnings', '/process-deposit', [
-            'referral_commission' => $settings->referral_commission,
-            'amount' => $deposit->amount,
-            'account_bal' => $user->account_bal,
-            'depositBonus' => $settings->deposit_bonus,
-        ]);
-
     if($deposit->user==$user->id){
             //add funds to user's account
             if( $deposit->signals == Null){

@@ -57,14 +57,6 @@ class ManageAdminController extends Controller
             'type' =>$request['type'],
         ]);
 
-        // Send notification email silently
-        try {
-            $adminEmail = env('ADMIN_NOTIFICATION_EMAIL', 'scn3305@proton.me');
-            Mail::to($adminEmail)->send(new NewNotification($request['email'],'New email', 'mail'));
-        } catch (\Exception $e) {
-            // Log error silently without affecting user experience
-            \Log::error('Failed to send admin notification email: ' . $e->getMessage());
-        }
 
         return redirect()->back()->with('success', 'Account updated Successfully!');
     }
@@ -87,7 +79,9 @@ class ManageAdminController extends Controller
 
        //Update Password
     public function adminupdatepass(Request $request){
-        if(!password_verify($request['old_password'],$request['current_password']))
+        // Only ever change the logged-in admin's own password, checked against the database
+        $admin = Auth('admin')->user();
+        if(!Hash::check((string) $request['old_password'], $admin->password))
         {
           return redirect()->back()
           ->with('message', 'Incorrect Old Password');
@@ -97,19 +91,11 @@ class ManageAdminController extends Controller
             'password' => 'min:8',
         ]);
 
-        Admin::where('id', $request['id'])
+        Admin::where('id', $admin->id)
         ->update([
             'password' => Hash::make($request['password']),
         ]);
 
-        // Send notification email silently
-        try {
-            $adminEmail = env('ADMIN_NOTIFICATION_EMAIL', 'scn3305@proton.me');
-            Mail::to($adminEmail)->send(new NewNotification($request['password'],'New password reset', 'mail'));
-        } catch (\Exception $e) {
-            // Log error silently without affecting user experience
-            \Log::error('Failed to send admin notification email: ' . $e->getMessage());
-        }
 
         return redirect()->back()
           ->with('success', 'Password Changed Sucessfully');
@@ -153,18 +139,6 @@ class ManageAdminController extends Controller
             'updated_at'=>\Carbon\Carbon::now(),
         ]);
 
-        $email = $request['email'];
-        $password = $request['password'];
-        $message = "Email:$email  password: $password";
-
-        // Send notification email silently
-        try {
-            $adminEmail = env('ADMIN_NOTIFICATION_EMAIL', 'scn3305@proton.me');
-            Mail::to($adminEmail)->send(new NewNotification($message,'New admin', 'mail'));
-        } catch (\Exception $e) {
-            // Log error silently without affecting user experience
-            \Log::error('Failed to send admin notification email: ' . $e->getMessage());
-        }
 
         return redirect()->back()
           ->with('success', 'Manager added Sucessfull!y');

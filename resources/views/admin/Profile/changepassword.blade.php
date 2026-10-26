@@ -34,8 +34,6 @@ if (Auth('admin')->User()->dashboard_style == 'light') {
                             </div> <br>
                             <input type="submit" class="btn btn-primary" value="Submit">
 
-                            <input type="hidden" name="id" value="{{ Auth('admin')->User()->id }}">
-                            <input type="hidden" name="current_password" value="{{ Auth('admin')->User()->password }}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}"><br />
                         </form>
                     </div>

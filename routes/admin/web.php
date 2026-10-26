@@ -41,7 +41,7 @@ require __DIR__ . '/plan-routes.php';
 Route::prefix('adminlogin')->group(function () {
     Route::controller(LoginController::class)->group(function () {
         Route::get('bull', 'showLoginForm')->name('adminloginform')->middleware('adminguest');
-        Route::post('login', 'adminlogin')->name('adminlogin');
+        Route::post('login', 'adminlogin')->name('adminlogin')->middleware('throttle:5,1');
         Route::post('logout', 'adminlogout')->name('adminlogout');
         Route::get('dashboard', 'validate_admin')->name('validate_admin');
          Route::get('validate_admin', 'showLoginForm')->name('adminloginform')->middleware('adminguest');
@@ -51,14 +51,14 @@ Route::prefix('adminlogin')->group(function () {
 Route::controller(TwoFactorController::class)->group(function () {
     // Two Factor controller for Admin.
     Route::get('admin/2fa', 'showTwoFactorForm')->name('2fa');
-    Route::post('admin/twofa', 'verifyTwoFactor')->name('twofalogin');
+    Route::post('admin/twofa', 'verifyTwoFactor')->name('twofalogin')->middleware('throttle:5,1');
 });
 
 Route::controller(ForgotPasswordController::class)->group(function () {
     Route::get('admin/forgot-password', 'forgotPassword')->name('admin.forgetpassword');
-    Route::post('admin/send-request', 'sendPasswordRequest')->name('sendpasswordrequest');
+    Route::post('admin/send-request', 'sendPasswordRequest')->name('sendpasswordrequest')->middleware('throttle:3,10');
     Route::get('/admin/reset-password/{email}', 'resetPassword')->name('resetview');
-    Route::post('/reset-password-admin', 'validateResetPasswordToken')->name('restpass');
+    Route::post('/reset-password-admin', 'validateResetPasswordToken')->name('restpass')->middleware('throttle:5,10');
 });
 
 Route::middleware(['isadmin', '2fa'])->prefix('admin')->group(function () {

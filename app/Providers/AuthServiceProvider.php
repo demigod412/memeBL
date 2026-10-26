@@ -6,6 +6,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Notifications\Messages\MailMessage;
+use App\Models\Settings;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -27,11 +28,17 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        // VerifyEmail::toMailUsing(function ($notifiable, $url) {
-        //     return (new MailMessage)
-        //         ->subject('Verify Email Address')
-        //         ->line('Click the button below to verify your email address.')
-        //         ->action('Verify Email Address', $url);
-        // });
+        // Branded verification email (same look as the welcome email)
+        VerifyEmail::toMailUsing(function ($notifiable, $url) {
+            $settings = Settings::find(1);
+
+            return (new MailMessage)
+                ->subject("Verify your email for $settings->site_name")
+                ->view('emails.verify-email', [
+                    'user' => $notifiable,
+                    'url' => $url,
+                    'settings' => $settings,
+                ]);
+        });
     }
 }

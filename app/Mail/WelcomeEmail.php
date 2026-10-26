@@ -32,7 +32,7 @@ class WelcomeEmail extends Mailable
         $settings = Settings::find(1);
         
         return $this->view('emails.welcome')  // Changed from markdown to view
-                    ->subject("Welcome to $settings->site_name - Your AI Trading Bot is Ready!")
+                    ->subject("Welcome to $settings->site_name, {$this->user->name}!")
                     ->with([
                         'user' => $this->user,
                         'settings' => $settings
