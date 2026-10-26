@@ -24,6 +24,7 @@ use App\Models\TermsPrivacy;
 use App\Models\Tp_Transaction;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Mail\NewNotification;
@@ -123,9 +124,46 @@ class HomePageController extends Controller
         return view('home.features')
         ->with(array(
             'title' => 'Features & Tools | Meme Bull Finance',
-
+            'shorts' => $this->youtubeShorts(),
             'settings' => Settings::where('id', '=', '1')->first(),
         ));
+    }
+
+    // Shorts from the @MemeBull_AI channel, refreshed from YouTube's shorts feed every 6 hours
+    private function youtubeShorts()
+    {
+        $fallback = [
+            ['id' => 'L5RrizorMbA', 'title' => '#memecrypto #Memebull'],
+            ['id' => 'OOS0N70AApM', 'title' => 'Memebull is here'],
+        ];
+
+        return Cache::remember('youtube_shorts_memebull', now()->addHours(6), function () use ($fallback) {
+            try {
+                $response = Http::timeout(5)->get('https://www.youtube.com/feeds/videos.xml', [
+                    'playlist_id' => 'UUSHzfCSJqa90j8cExadIl28Mw',
+                ]);
+                if (!$response->successful()) {
+                    return $fallback;
+                }
+
+                $xml = simplexml_load_string($response->body());
+                if ($xml === false) {
+                    return $fallback;
+                }
+
+                $shorts = [];
+                foreach ($xml->entry as $entry) {
+                    $id = (string) $entry->children('yt', true)->videoId;
+                    if (preg_match('/^[A-Za-z0-9_-]{11}$/', $id)) {
+                        $shorts[] = ['id' => $id, 'title' => (string) $entry->title];
+                    }
+                }
+
+                return $shorts ?: $fallback;
+            } catch (\Exception $e) {
+                return $fallback;
+            }
+        });
     }
 
 

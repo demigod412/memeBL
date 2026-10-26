@@ -365,10 +365,172 @@
         }
     }
     
+    /* YouTube Shorts */
+    .shorts-section {
+        background: linear-gradient(180deg, #080B18 0%, #0c1230 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .shorts-section::before {
+        content: '';
+        position: absolute;
+        width: 520px;
+        height: 520px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 0, 51, 0.08) 0%, transparent 70%);
+        top: -200px;
+        left: -160px;
+    }
+
+    .shorts-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 28px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .short-card {
+        width: 280px;
+        max-width: 100%;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(45, 217, 143, 0.2);
+        border-radius: 22px;
+        padding: 10px;
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .short-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(45, 217, 143, 0.6);
+        box-shadow: 0 18px 40px rgba(45, 217, 143, 0.15);
+    }
+
+    .short-frame {
+        position: relative;
+        aspect-ratio: 9 / 16;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #000;
+        cursor: pointer;
+    }
+
+    .short-frame img,
+    .short-frame iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 0;
+    }
+
+    .short-frame::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.75) 100%);
+        pointer-events: none;
+    }
+
+    .short-frame.playing::after,
+    .short-frame.playing .short-play,
+    .short-frame.playing .short-badge {
+        display: none;
+    }
+
+    .short-play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 68px;
+        height: 68px;
+        border-radius: 50%;
+        border: 0;
+        background: linear-gradient(135deg, #2DD98F, #4a21ef);
+        color: #fff;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 0 10px rgba(45, 217, 143, 0.18);
+        z-index: 2;
+        transition: transform 0.25s ease;
+    }
+
+    .short-frame:hover .short-play {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .short-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        z-index: 2;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 4px 10px;
+        border-radius: 20px;
+    }
+
+    .short-badge i {
+        color: #ff0033;
+    }
+
+    .short-title {
+        color: #fff;
+        font-weight: 600;
+        font-size: 15px;
+        margin: 12px 6px 4px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .short-link {
+        color: #2DD98F;
+        font-size: 13px;
+        margin: 0 6px 6px;
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    .short-link:hover {
+        color: #fff;
+    }
+
+    .yt-subscribe {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #ff0033;
+        color: #fff;
+        font-weight: 600;
+        padding: 12px 26px;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: background 0.25s ease, transform 0.25s ease;
+    }
+
+    .yt-subscribe:hover {
+        background: #cc0029;
+        color: #fff;
+        transform: translateY(-2px);
+    }
+
     @media (max-width: 768px) {
         .features-hero {
             padding: 60px 0;
             min-height: auto;
+        }
+
+        .short-card {
+            width: 240px;
         }
         
         .stat-number {
@@ -542,6 +704,43 @@
     </div>
 </section>
 
+<!-- YouTube Shorts -->
+@if(!empty($shorts))
+<section class="shorts-section py-100">
+    <div class="container">
+        <div class="row justify-content-center mb-60">
+            <div class="col-lg-8 text-center">
+                <span class="section-tag">WATCH &amp; LEARN</span>
+                <h2 class="display-5 fw-bold mb-4">Meme Bull <span class="gradient-text">Shorts</span></h2>
+                <p class="text-white-50">Quick looks at Meme Bull in action, straight from our YouTube channel.</p>
+            </div>
+        </div>
+
+        <div class="shorts-grid">
+            @foreach($shorts as $short)
+            <div class="short-card wow fadeInUp">
+                <div class="short-frame" data-video="{{ $short['id'] }}" role="button" tabindex="0" aria-label="Play {{ $short['title'] }}">
+                    <img src="https://i.ytimg.com/vi/{{ $short['id'] }}/hqdefault.jpg" alt="{{ $short['title'] }}" loading="lazy">
+                    <span class="short-badge"><i class="fab fa-youtube me-1"></i>Shorts</span>
+                    <span class="short-play"><i class="fas fa-play"></i></span>
+                </div>
+                <div class="short-title" title="{{ $short['title'] }}">{{ $short['title'] }}</div>
+                <a class="short-link" href="https://www.youtube.com/shorts/{{ $short['id'] }}" target="_blank" rel="noopener">
+                    Watch on YouTube <i class="fas fa-external-link-alt ms-1"></i>
+                </a>
+            </div>
+            @endforeach
+        </div>
+
+        <div class="text-center mt-5">
+            <a class="yt-subscribe" href="https://www.youtube.com/@MemeBull_AI?sub_confirmation=1" target="_blank" rel="noopener">
+                <i class="fab fa-youtube"></i> Subscribe to @MemeBull_AI
+            </a>
+        </div>
+    </div>
+</section>
+@endif
+
 <!-- Comparison Table -->
 <section class="py-100">
     <div class="container">
@@ -661,6 +860,28 @@
         }, { threshold: 0.5 });
         
         statElements.forEach(stat => observer.observe(stat));
+
+        // Load each short's player only when it is clicked
+        document.querySelectorAll('.short-frame').forEach(frame => {
+            const play = () => {
+                if (frame.classList.contains('playing')) return;
+                const iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube-nocookie.com/embed/' + frame.dataset.video + '?autoplay=1&rel=0&playsinline=1';
+                iframe.title = frame.getAttribute('aria-label');
+                iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
+                frame.innerHTML = '';
+                frame.appendChild(iframe);
+                frame.classList.add('playing');
+            };
+            frame.addEventListener('click', play);
+            frame.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    play();
+                }
+            });
+        });
     });
 </script>
 
